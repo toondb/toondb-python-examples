@@ -320,3 +320,9 @@ Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 - [toondb/toondb-go](https://github.com/toondb/toondb-go) - Go SDK
 - [toondb/toondb-golang-examples](https://github.com/toondb/toondb-golang-examples) - Go examples
 - [toondb/toondb-examples](https://github.com/toondb/toondb-examples) - Multi-language examples
+
+## Acknowledgements
+
+Some of the agent memory examples (Wizard of Oz, Podcast, Zep ports) are referenced and adapted from the following projects:
+- [Zep](https://github.com/getzep/zep)
+- [Graphiti](https://github.com/getzep/graphiti)
