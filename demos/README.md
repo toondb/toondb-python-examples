@@ -1,0 +1,272 @@
+# ToonDB Demo Use Cases
+
+Three demo-grade, agentic use cases showcasing ToonDB's capabilities:
+
+1. **"Real database stuff"**: SQL, KV, transactions (ACID/MVCC/WAL/SSI)
+2. **"Agent memory + retrieval"**: Vectors, ContextQuery, TOON, token budgeting
+
+Each demo maps directly to ToonDB features: TOON encoding, ContextQuery, HNSW vectors, ACID transactions, Embedded + IPC modes, hybrid search, and multi-vector documents.
+
+---
+
+## Demos
+
+### 1. [Support Agent](./1_support_agent/) - "Where's my order?"
+
+**RAG + SQL + Transactional Writes**
+
+An AI support agent that handles customer order inquiries using SQL queries, KV preferences, vector-retrieved policies, TOON-encoded context, and ACID transactions.
+
+**Showcases**:
+- ✅ SQL queries (`execute_sql`) for order data
+- ✅ KV storage for user preferences
+- ✅ Vector RAG with `ContextQuery` and token budgeting
+- ✅ TOON encoding (40-67% token savings vs JSON)
+- ✅ ACID transactions (update order + create ticket + audit log)
+- ✅ Hybrid storage: SQL + KV + vectors in one DB
+
+**Key Highlight**: TOON reduces prompt tokens by ~67% compared to JSON for tabular data.
+
+[→ See Demo 1 README](./1_support_agent/README.md)
+
+---
+
+### 2. [Incident Response](./2_incident_response/) - Multi-Agent IPC
+
+**Shared Memory + Retrieval Across Processes**
+
+Three concurrent processes share a single ToonDB instance via IPC (Unix socket) to detect, analyze, and mitigate production incidents using hybrid retrieval.
+
+**Showcases**:
+- ✅ IPC mode: multiple processes, one shared DB
+- ✅ Namespace isolation (`incident_ops`)
+- ✅ Hybrid retrieval: vector + keyword with RRF
+- ✅ ACID state transitions (OPEN → MITIGATING → RESOLVED)
+- ✅ Concurrent writes without conflicts
+- ✅ Token-budgeted runbook retrieval
+
+**Key Highlight**: Three agents collaborate through shared ToonDB without separate message queues or databases.
+
+[→ See Demo 2 README](./2_incident_response/README.md)
+
+---
+
+### 3. [Analytics Copilot](./3_analytics_copilot/) - Spreadsheet to Agent Memory
+
+**TOON for Tabular Data + Vector Search**
+
+Upload a CSV, run SQL analytics, encode results in TOON, search notes semantically, and get AI-powered churn analysis—all under strict token budgets.
+
+**Showcases**:
+- ✅ CSV ingestion to SQL tables
+- ✅ TOON encoding (40-67% token savings)
+- ✅ Vector search over text fields (customer notes)
+- ✅ Token-budgeted context assembly via `ContextQuery`
+- ✅ SQL + vectors in one database (no ETL)
+- ✅ Actual token count measurements with `tiktoken`
+
+**Key Highlight**: Proves TOON savings with concrete measurements (e.g., 156 → 52 tokens = 67% reduction).
+
+[→ See Demo 3 README](./3_analytics_copilot/README.md)
+
+---
+
+## Feature Matrix
+
+| Feature | Demo 1 | Demo 2 | Demo 3 |
+|---------|--------|--------|--------|
+| **SQL (execute_sql)** | ✅ Orders, tickets, audit logs | ✅ State tracking | ✅ Customer analytics |
+| **KV Storage** | ✅ User preferences | ✅ Metrics, incidents | ✅ - |
+| **Vector Search (HNSW)** | ✅ Policy retrieval | ✅ Runbook retrieval | ✅ Customer notes |
+| **TOON Encoding** | ✅ Order rows | - | ✅ Analytics results |
+| **ContextQuery + Token Budget** | ✅ 1200 token limit | ✅ 2000 token limit | ✅ 1000 token limit |
+| **Hybrid Search (vector+keyword)** | ✅ RRF for policies | ✅ RRF for runbooks | ✅ RRF for notes |
+| **ACID Transactions** | ✅ Multi-table writes | ✅ State transitions | ✅ - |
+| **IPC Mode** | - | ✅ 3 processes | - |
+| **Namespace Isolation** | ✅ `support_system` | ✅ `incident_ops` | ✅ `analytics` |
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+```bash
+# Install ToonDB
+pip install toondb
+
+# Install demo dependencies
+pip install openai tiktoken
+
+# Set OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+```
+
+### Run Demos
+
+```bash
+# Demo 1: Support Agent
+cd 1_support_agent
+python setup_db.py
+python run_demo.py
+
+# Demo 2: Incident Response (requires separate terminals)
+cd 2_incident_response
+./run_demo.sh
+
+# Demo 3: Analytics Copilot
+cd 3_analytics_copilot
+python token_comparison.py  # See TOON vs JSON savings
+python run_demo.py          # Interactive churn analysis
+```
+
+---
+
+## Architecture Patterns
+
+### Pattern 1: Single-Process Agent (Demo 1, 3)
+
+```
+User Query
+    ↓
+[SQL Query] → Operational data
+    ↓
+[KV Lookup] → User preferences
+    ↓
+[Vector Search] → Knowledge retrieval
+    ↓
+[ContextQuery] → Token-budgeted context
+    ↓
+[TOON Encoding] → Compact format
+    ↓
+[LLM] → Generate response
+    ↓
+[ACID Transaction] → Atomic writes
+```
+
+**Everything in one ToonDB instance. No glue code.**
+
+### Pattern 2: Multi-Process IPC (Demo 2)
+
+```
+Process A (Collector) ────┐
+                          ├──→ ToonDB Server (IPC)
+Process B (Indexer)   ────┤         ↓
+                          │    Shared State
+Process C (Commander) ────┘    - KV paths
+                               - Vector collection
+                               - SQL tables
+```
+
+**Multiple agents, one source of truth, Unix socket.**
+
+---
+
+## Why These Demos Matter
+
+### 1. Developer Experience
+
+Traditional stack:
+- Postgres (SQL)
+- Redis (KV)
+- Pinecone/Weaviate (vectors)
+- Custom orchestration layer
+- ETL pipelines between systems
+
+ToonDB stack:
+- **ToonDB** (SQL + KV + vectors)
+- Done.
+
+### 2. Token Efficiency
+
+JSON example (from ToonDB README):
+```json
+[{"id": 1, "name": "Alice", "email": "alice@example.com"}]
+```
+**156 tokens**
+
+TOON example:
+```
+users[1]{id,name,email}:
+1,Alice,alice@example.com
+```
+**52 tokens** (67% reduction)
+
+### 3. Production-Ready Features
+
+- **ACID/MVCC/WAL/SSI**: Demo 1 shows atomic multi-table transactions
+- **HNSW Vectors**: All demos use efficient vector search
+- **Token Budgeting**: `ContextQuery` prevents prompt overflow
+- **IPC**: Demo 2 shows multi-process collaboration
+- **Hybrid Search**: RRF combines vector + keyword retrieval
+
+---
+
+## Project Structure
+
+```
+demos/
+├── README.md                         # This file
+├── shared/                           # Shared utilities
+│   ├── toon_encoder.py              # TOON format encoder
+│   ├── llm_client.py                # OpenAI wrapper
+│   └── embeddings.py                # Embedding client
+├── 1_support_agent/
+│   ├── README.md
+│   ├── setup_db.py
+│   ├── agent.py
+│   ├── run_demo.py
+│   └── policies/                    # RAG documents
+├── 2_incident_response/
+│   ├── README.md
+│   ├── start_server.sh
+│   ├── process_a_collector.py
+│   ├── process_b_indexer.py
+│   ├── process_c_commander.py
+│   ├── run_demo.sh
+│   └── runbooks/                    # RAG documents
+└── 3_analytics_copilot/
+    ├── README.md
+    ├── copilot.py
+    ├── token_comparison.py
+    ├── run_demo.py
+    └── sample_data/
+        └── customers.csv
+```
+
+---
+
+## Requirements
+
+All demos share the same dependencies:
+
+```
+toondb>=0.3.0
+openai>=1.0.0
+tiktoken>=0.5.0
+```
+
+Install globally or use per-demo `requirements.txt`.
+
+---
+
+## Links
+
+- [ToonDB Main Repo](https://github.com/toondb/toondb)
+- [Python SDK](https://github.com/toondb/toondb-python-sdk)
+- [Node.js SDK](https://github.com/toondb/toondb-js)
+- [Go SDK](https://github.com/toondb/toondb-go)
+
+---
+
+## Credits
+
+These demos showcase ToonDB's core capabilities:
+- **TOON format** for token-efficient tabular data
+- **ContextQuery** for retrieval with budgets
+- **HNSW vectors** for fast semantic search
+- **ACID/MVCC** for transactional consistency
+- **IPC mode** for multi-process agents
+- **Hybrid search** with RRF
+
+All features are production-ready and available in ToonDB 0.3+.

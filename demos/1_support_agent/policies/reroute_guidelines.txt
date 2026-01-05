@@ -1,0 +1,59 @@
+# Reroute Guidelines
+
+## Overview
+Rerouting allows customers to redirect in-transit packages to alternative delivery addresses.
+
+## Availability
+- Package must still be in carrier's possession (not out for delivery)
+- Available for domestic shipments only
+- Not available for international orders
+- Carrier must support address change (check carrier capabilities)
+
+## Valid Alternative Addresses
+- Customer's verified alternate address on file
+- Workplace address (requires business name and hours)
+- Pickup location (UPS Store, FedEx Office, etc.)
+- Friend/family address (requires recipient consent)
+
+## Restrictions
+- Cannot reroute to PO boxes (if original was street address)
+- Cannot reroute across state lines for some carriers
+- Cannot reroute to addresses flagged as high-risk
+
+## Process
+
+1. **Verify Package Status**:
+   - Check tracking: must show "In Transit" status
+   - Confirm carrier supports reroute
+   - Ensure package not already out for delivery
+
+2. **Validate New Address**:
+   - Confirm address format and completeness
+   - Verify address through carrier API
+   - Check for delivery restrictions
+
+3. **Submit Reroute Request**:
+   - Update order destination in database
+   - Submit change request to carrier API
+   - Transaction must be atomic: update order + create ticket + log audit
+
+4. **Confirmation**:
+   - Send confirmation email with new address and ETA
+   - Update tracking information
+   - Set follow-up reminder for delivery confirmation
+
+## Fees
+- Free for premium customers
+- $5 fee for standard customers (waived for late shipments)
+- Same-day reroute: additional $10 fee
+
+## Special Cases
+- **Traveling customers**: Prioritize hotel/temporary address reroutes
+- **Business hours**: Confirm business delivery hours for workplace reroutes
+- **Secure locations**: Additional verification for high-value items
+
+## System Updates Required
+- Update order.destination field
+- Set order.status to "REROUTE_REQUESTED"
+- Create support ticket with type "REROUTE"
+- Log change in audit_logs table

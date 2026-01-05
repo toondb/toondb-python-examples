@@ -228,6 +228,52 @@ pip install -r requirements.txt
 python toondb_simple.py
 ```
 
+# ToonDB Demo Notebooks
+
+Interactive Jupyter notebooks for learning ToonDB features through hands-on examples.
+
+## 📚 Notebooks
+
+### [1. Support Agent](./1_support_agent.ipynb)
+**RAG + SQL + Transactions**
+
+Learn how to build an AI support agent with:
+- SQL queries for order data
+- KV storage for user preferences
+- Vector RAG with policy retrieval
+- TOON encoding (40-67% token savings)
+- ACID transactions
+
+**Key Concepts**: `execute_sql()`, KV storage, vector collections, `ContextQuery`, TOON format, transactions
+
+---
+
+### [2. Incident Response](./2_incident_response.ipynb)
+**Multi-Agent IPC**
+
+Learn how to build coordinated multi-process systems with:
+- IPC mode (Unix socket)
+- Shared state across processes
+- Namespace isolation
+- Hybrid retrieval (vector + keyword with RRF)
+- ACID state machines
+
+**Key Concepts**: IPC mode, `IpcClient`, namespaces, hybrid search, state transitions
+
+---
+
+### [3. Analytics Copilot](./3_analytics_copilot.ipynb)
+**Spreadsheet + AI Analysis**
+
+Learn how to build data analysis agents with:
+- CSV ingestion to SQL
+- TOON vs JSON token comparison (with proof!)
+- Vector search over text fields
+- Token-budgeted context assembly
+- Churn prediction analysis
+
+**Key Concepts**: CSV → SQL, TOON encoding, token savings measurement, semantic search
+
 ---
 
 ## 🔑 Key ToonDB Features Demonstrated

@@ -1,0 +1,122 @@
+# Database Recovery Runbook
+
+## Scenarios
+
+### 1. Database Connection Failures
+**Symptoms**:
+- Application errors: "Connection refused" or "Connection timeout"
+- Health checks failing
+- Spike in connection pool exhaustion
+
+**Recovery Steps**:
+1. Check database service status
+2. Verify network connectivity (security groups, firewalls)
+3. Check connection pool configuration
+4. Verify credentials haven't expired
+5. Restart application connection pools
+6. Scale up connection limit if needed
+
+### 2. Database Performance Degradation
+**Symptoms**:
+- Slow query execution
+- High CPU/memory on database
+- Replication lag increasing
+- Lock wait timeouts
+
+**Recovery Steps**:
+1. Identify slow queries: `SHOW PROCESSLIST` or `pg_stat_activity`
+2. Kill long-running queries if safe
+3. Check for missing indexes
+4. Verify table statistics are up to date
+5. Consider read replica scaling
+6. Enable query caching for hot paths
+
+### 3. Replication Lag
+**Symptoms**:
+- Read replicas showing stale data
+- Replication lag > 30 seconds
+- Inconsistent data between reads
+
+**Recovery Steps**:
+1. Check network bandwidth between primary and replicas
+2. Verify replica server resources (CPU, I/O)
+3. Review workload: heavy writes can cause lag
+4. Consider temporary write throttling
+5. Scale up replica instance size
+6. Add more read replicas to distribute load
+
+### 4. Data Corruption
+**Symptoms**:
+- Database crashes on startup
+- Checksum failures
+- Inconsistent query results
+
+**Recovery Steps** (CRITICAL):
+1. **IMMEDIATELY** take database offline
+2. Assess corruption extent
+3. Attempt automatic recovery: `ANALYZE TABLE` or `VACUUM FULL`
+4. If recovery fails, restore from point-in-time backup
+5. Replay WAL logs to minimize data loss
+6. Verify data integrity before bringing online
+
+### 5. Disk Space Exhaustion
+**Symptoms**:
+- "Disk full" errors
+- Write operations failing
+- Transaction log growth
+
+**Immediate Actions**:
+1. Clear old transaction logs
+2. Drop temporary tables
+3. Archive old data to cold storage
+4. Increase disk provisioned IOPS
+5. Scale up storage capacity
+
+## Point-in-Time Recovery
+
+### Preparation
+- Verify backup exists and is accessible
+- Identify recovery target time
+- Estimate data loss window
+- Get approval from engineering lead
+
+### Procedure
+1. Stop application writes to database
+2. Create snapshot of current state (even if corrupted)
+3. Provision new database instance
+4. Restore from backup to target timestamp
+5. Verify data consistency
+6. Update application connection strings
+7. Resume traffic
+
+### Time Estimates
+- Small database (< 10GB): 15-30 minutes
+- Medium database (10-100GB): 30-90 minutes
+- Large database (> 100GB): 1-4 hours
+
+## Monitoring & Alerts
+
+### Critical Metrics
+- Connection pool utilization > 80%
+- Replication lag > 60 seconds
+- Disk usage > 85%
+- Slow query count spike
+- Transaction rollback rate > 5%
+
+### Automated Responses
+- Auto-scale read replicas when lag > 30s
+- Alert on-call when disk > 90%
+- Circuit breaker activation on connection failures
+
+## Backup Verification
+Run weekly backup restore tests:
+1. Restore to staging environment
+2. Run data integrity checks
+3. Verify application can connect and query
+4. Document restore time
+
+## Escalation Path
+1. On-call engineer (0-15 min)
+2. Database team lead (15-30 min)
+3. Senior infrastructure engineer (30-60 min)
+4. Vendor support if managed database (concurrent)

@@ -1,0 +1,42 @@
+# Late Shipment Policy
+
+## Policy Overview
+When a customer reports a shipment delay, agents should follow these guidelines to resolve the issue promptly and maintain customer satisfaction.
+
+## Eligibility Criteria
+- Order is more than 2 business days past the estimated delivery date
+- Customer has not previously received a replacement/refund for this order
+- Order value is under $500 (escalate to manager for higher values)
+
+## Resolution Options
+
+### Option 1: Reroute to Alternative Address
+- Available if package is still in transit
+- Customer must provide valid alternative delivery address
+- No additional charge to customer
+- Update delivery address in system immediately
+- Send confirmation email with new ETA
+
+### Option 2: Replacement Order
+- Available for orders still more than 3 days from delivery
+- Ship replacement via expedited shipping (1-2 day)
+- Original order will be canceled upon delivery or returned
+- Customer preference: check user profile for "replacements_over_refunds" flag
+- Requires manager approval for orders over $200
+
+### Option 3: Refund
+- Last resort option if reroute/replacement not viable
+- Full refund to original payment method
+- Processing time: 3-5 business days
+- Customer keeps original order if it arrives
+
+## Special Circumstances
+- **Traveling customers**: Prioritize reroute or expedited replacement
+- **Time-sensitive items**: Offer refund + expedited replacement credit
+- **Repeat issues**: Flag account for investigation
+
+## Required Actions
+1. Create support ticket with issue details
+2. Update order status in system
+3. Log resolution in customer audit trail
+4. Send confirmation email to customer

@@ -1,0 +1,82 @@
+# Latency Spike Runbook
+
+## Detection
+Latency spike: P99 response time exceeds 1000ms for more than 2 minutes
+
+## Triage Steps
+
+### 1. Check Recent Deployments
+- Query deployment events from last 30 minutes
+- Look for recent code pushes, config changes, or infrastructure updates
+- Check deployment status in all regions
+
+### 2. Investigate Database
+- Check database connection pool utilization
+- Review slow query log
+- Verify no table locks or long-running transactions
+- Check for missing indexes on frequently accessed tables
+
+### 3. Review Infrastructure
+- CPU/Memory utilization on application servers
+- Network latency between services
+- Load balancer health checks
+- CDN cache hit rates
+
+### 4. Check External Dependencies
+- API response times for third-party services
+- DNS resolution times
+- External database/cache connections
+
+## Common Causes
+
+### Recent Deployment
+**Symptom**: Latency spike immediately after deployment
+**Resolution**: Rollback deployment (see deployment_rollback.txt)
+
+### Database Overload
+**Symptom**: High database CPU, slow queries
+**Resolution**: 
+- Scale read replicas
+- Add missing indexes
+- Implement query caching
+- Consider connection pooling adjustments
+
+### Upstream Service Degradation
+**Symptom**: Specific endpoints slow, external API timeouts
+**Resolution**:
+- Enable circuit breakers
+- Use cached responses
+- Fail fast with degraded mode
+
+### Memory Leak
+**Symptom**: Gradual latency increase over hours
+**Resolution**:
+- Restart affected instances (rolling)
+- Heap dump analysis
+- Code review and patch
+
+## Mitigation Actions
+
+### Immediate (< 5 min)
+1. Enable read-only mode if write path is slow
+2. Scale out application instances
+3. Increase rate limiting to shed load
+4. Enable cached responses where possible
+
+### Short-term (< 30 min)
+1. Rollback problematic deployment
+2. Optimize slow queries with temp indexes
+3. Increase infrastructure capacity
+4. Reroute traffic to healthy regions
+
+### Long-term
+1. Root cause analysis
+2. Add monitoring/alerting for specific metrics
+3. Implement circuit breakers
+4. Capacity planning review
+
+## Communication
+- Update status page with "Investigating performance issues"
+- Post in #incidents Slack channel
+- Notify on-call engineering lead
+- Update incident state: OPEN → MITIGATING → RESOLVED

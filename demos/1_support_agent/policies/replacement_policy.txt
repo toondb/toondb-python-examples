@@ -1,0 +1,42 @@
+# Replacement Policy
+
+## When to Offer Replacements
+
+Replacements are the preferred resolution method for:
+- Damaged items upon delivery
+- Wrong item shipped
+- Missing items from order
+- Late shipments (when reroute not possible)
+- Defective products within 30 days
+
+## Replacement Process
+
+1. **Verification**: Confirm customer account and order details
+2. **Eligibility Check**: 
+   - Order placed within last 90 days
+   - Customer has not exceeded replacement limit (3 per year)
+   - Item still in stock
+3. **Shipping Method**:
+   - Standard replacement: 5-7 business days
+   - Expedited replacement: 1-2 business days (for late shipments or premium customers)
+4. **Original Item**:
+   - Damaged/wrong items: customer must return within 14 days
+   - Late shipments: no return required if original arrives late
+
+## Customer Preferences
+
+Check user profile for shipping and resolution preferences:
+- `replacements_over_refunds`: Customer prefers replacement to refund
+- `expedited_shipping_only`: Always use fastest shipping
+- `eco_friendly`: Use consolidated/slower shipping when possible
+
+## Cost Considerations
+- Free expedited shipping for late deliveries
+- Customer pays return shipping for change-of-mind returns
+- All shipping free for defective/damaged items
+
+## System Requirements
+- Update order status to "REPLACEMENT_PROCESSING"
+- Create new order record linked to original
+- Set expedited flag if applicable
+- Create return authorization if needed

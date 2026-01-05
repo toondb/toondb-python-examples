@@ -1,0 +1,104 @@
+# Deployment Rollback Runbook
+
+## When to Rollback
+- Significant increase in error rate (>1% above baseline)
+- Critical functionality broken
+- Security vulnerability introduced
+- Performance degradation impacting user experience
+- Failed smoke tests or canary deployment
+
+## Rollback Decision Criteria
+
+### Automatic Rollback Triggers
+- Error rate > 5%
+- Latency P99 > 3000ms
+- Health check failures > 50%
+- Critical path availability < 99%
+
+### Manual Rollback Decision
+- Product manager approval for feature rollback
+- On-call engineer discretion for performance issues
+- Security team mandate for vulnerabilities
+
+## Rollback Procedure
+
+### 1. Pre-rollback Checklist
+- [ ] Confirm current deployment version
+- [ ] Identify last known good version
+- [ ] Verify rollback version exists in registry
+- [ ] Notify team in #incidents channel
+- [ ] Update incident state to MITIGATING
+
+### 2. Execute Rollback
+
+**For Container Deployments (Kubernetes)**:
+```bash
+kubectl rollout undo deployment/app-name -n production
+kubectl rollout status deployment/app-name -n production
+```
+
+**For VM-based Deployments**:
+```bash
+ansible-playbook rollback.yml --extra-vars "version=1.2.3"
+```
+
+**For Serverless (Lambda/Cloud Functions)**:
+```bash
+aws lambda update-function-code \
+  --function-name app-function \
+  --s3-bucket deployments \
+  --s3-key versions/v1.2.3.zip
+```
+
+### 3. Validation
+- Monitor error rates for 5 minutes
+- Check latency metrics return to baseline
+- Verify critical user flows via synthetic tests
+- Confirm no new errors in logs
+
+### 4. Post-rollback Actions
+- Update deployment tracking system
+- Document rollback reason and impact
+- Schedule postmortem within 24 hours
+- Create ticket for fix in next release
+
+## Database Migrations
+
+### Schema Changes
+If deployment included database migrations:
+1. **Backward-compatible changes**: No additional action needed
+2. **Breaking changes**: Requires manual migration reversal
+   - Run down migration scripts
+   - Verify data integrity
+   - Test application against reverted schema
+
+### Data Migrations
+- **Additive data**: Generally safe to leave
+- **Modified data**: May require data restoration from backup
+- **Deleted data**: CRITICAL - restore from point-in-time backup
+
+## Rollback Time Estimates
+- Container deployment: 2-5 minutes
+- VM deployment: 5-15 minutes
+- Database migration reversal: 10-60 minutes (depends on data volume)
+- Full system restore: 30-120 minutes
+
+## Communication Template
+```
+[INCIDENT] Deployment rollback initiated
+
+Version: X.Y.Z → X.Y.Z-1
+Reason: [error rate spike / performance degradation / broken feature]
+Impact: [user-facing impact description]
+ETA: [expected completion time]
+Status: Rolling back now
+
+Will update when rollback complete.
+```
+
+## Escalation
+If rollback fails or doesn't resolve issue:
+1. Page senior engineering lead
+2. Consider emergency maintenance window
+3. Enable disaster recovery mode
+4. Restore from last known good backup
