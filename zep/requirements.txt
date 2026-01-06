@@ -1,1 +1,1 @@
-toondb-client>=0.3.1
+toondb-client>=0.3.3

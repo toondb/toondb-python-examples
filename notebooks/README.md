@@ -207,7 +207,7 @@ Please open an issue or contribute!
 
 All notebooks use:
 ```
-toondb>=0.3.0
+toondb>=0.3.3
 openai>=1.0.0
 tiktoken>=0.5.0
 jupyter>=1.0.0

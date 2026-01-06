@@ -269,7 +269,7 @@ pip install -r requirements.txt
 ```
 
 Requirements:
-- `toondb-client>=0.3.0`
+- `toondb-client>=0.3.3`
 - `openai>=1.0.0`
 - `python-dotenv`
 - `numpy`

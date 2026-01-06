@@ -23,12 +23,12 @@ toondb-python-examples/
 ### Prerequisites
 
 - Python 3.10+ installed
-- ToonDB Python SDK: `toondb-client>=0.3.1`
+- ToonDB Python SDK: `toondb-client>=0.3.3`
 
 ### Installation
 
 ```bash
-pip install toondb-client>=0.3.1
+pip install toondb-client>=0.3.3
 ```
 
 ## 📚 Examples by Category

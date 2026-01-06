@@ -241,7 +241,7 @@ demos/
 All demos share the same dependencies:
 
 ```
-toondb>=0.3.0
+toondb>=0.3.3
 openai>=1.0.0
 tiktoken>=0.5.0
 ```
