@@ -23,12 +23,12 @@ sochdb-python-examples/
 ### Prerequisites
 
 - Python 3.10+ installed
-- SochDB Python SDK: `sochdb-client>=0.3.3`
+- SochDB Python SDK: `sochdb`
 
 ### Installation
 
 ```bash
-pip install sochdb-client>=0.3.3
+pip install sochdb
 ```
 
 ## 📚 Examples by Category
@@ -326,3 +326,4 @@ Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 Some of the agent memory examples (Wizard of Oz, Podcast, Zep ports) are referenced and adapted from the following projects:
 - [Zep](https://github.com/getzep/zep)
 - [Graphiti](https://github.com/getzep/graphiti)
+git a
