@@ -9,7 +9,7 @@ echo "Multi-Agent Incident Response Demo"
 echo "=========================================="
 echo ""
 echo "This demo showcases:"
-echo "  ✓ IPC mode: shared ToonDB across processes"
+echo "  ✓ IPC mode: shared SochDB across processes"
 echo "  ✓ Namespace isolation"
 echo "  ✓ Hybrid retrieval (vector + keyword with RRF)"
 echo "  ✓ ACID state transitions"
@@ -23,8 +23,8 @@ echo "=========================================="
 echo ""
 
 # Check if server is running
-if ! toondb-server status --db "$DB_PATH" &> /dev/null; then
-    echo "⚠️  ToonDB server not detected. Starting server first..."
+if ! sochdb-server status --db "$DB_PATH" &> /dev/null; then
+    echo "⚠️  SochDB server not detected. Starting server first..."
     ./start_server.sh &
     sleep 3
 fi

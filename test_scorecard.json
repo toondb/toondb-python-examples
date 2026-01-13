@@ -1,0 +1,382 @@
+{
+  "run_meta": {
+    "seed": 1337,
+    "scale": "small",
+    "mode": "embedded",
+    "sdk_version": "0.3.3",
+    "started_at": "2026-01-09T16:01:16.734330",
+    "duration_s": 3.7506330013275146
+  },
+  "scenario_scores": {
+    "01_multi_tenant_support": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": 0.17073230812473544,
+          "recall_at_10": 0.4,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": 0.65
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "vector_search": 5.062305927276611,
+            "hybrid_search": 9.622395038604735
+          }
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "02_sales_crm": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "txn_commit": 5.017876625061035
+          }
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": 1.0
+        }
+      }
+    },
+    "03_secops_triage": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "04_onCall_runbook": {
+      "pass": false,
+      "metrics": {
+        "passed": false,
+        "errors": [
+          "Top-1 accuracy below threshold: 10.00%"
+        ],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": 0.1,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "05_memory_crash_safe": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "06_finance_close": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "ledger_commit": 7.769322395324706
+          }
+        },
+        "transactions": {
+          "conflict_rate": 0.0,
+          "avg_retries": 0.0
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "07_compliance": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "08_procurement": {
+      "pass": false,
+      "metrics": {
+        "passed": false,
+        "errors": [
+          "Recall below threshold: 30.00%"
+        ],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": 0.3,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "09_edge_field_tech": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    },
+    "10_mcp_tool": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": null,
+          "recall_at_10": null,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": null
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {}
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": 1.0
+        }
+      }
+    }
+  },
+  "global_metrics": {
+    "p95_latency_ms": {
+      "vector_search": 5.062305927276611,
+      "hybrid_search": 9.622395038604735,
+      "txn_commit": 5.017876625061035,
+      "ledger_commit": 7.769322395324706
+    },
+    "error_rate": 0.19999999999999996
+  },
+  "overall": {
+    "pass": false,
+    "score_0_100": 80.0,
+    "passed_scenarios": 8,
+    "total_scenarios": 10,
+    "failed_checks": [
+      "04_onCall_runbook: Top-1 accuracy below threshold: 10.00%",
+      "08_procurement: Recall below threshold: 30.00%"
+    ]
+  }
+}

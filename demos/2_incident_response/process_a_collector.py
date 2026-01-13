@@ -1,6 +1,6 @@
 """Process A: Metrics and events collector.
 
-Simulates collecting metrics and deployment events, writing to shared ToonDB via IPC.
+Simulates collecting metrics and deployment events, writing to shared SochDB via IPC.
 """
 
 import sys
@@ -11,13 +11,13 @@ from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from toondb import IpcClient
+from sochdb import IpcClient
 
 
 def collect_metrics(client: IpcClient):
     """Simulate metrics collection and write to shared DB."""
     print("🔄 Process A: Metrics Collector")
-    print("  Writing metrics to shared ToonDB via IPC...\n")
+    print("  Writing metrics to shared SochDB via IPC...\n")
     
     iteration = 0
     
@@ -66,16 +66,16 @@ def collect_metrics(client: IpcClient):
 
 def main():
     """Run metrics collector."""
-    socket_path = "./ops_db/toondb.sock"
+    socket_path = "./ops_db/sochdb.sock"
     
     print("="*60)
     print("PROCESS A: METRICS COLLECTOR")
     print("="*60)
-    print(f"Connecting to ToonDB IPC socket: {socket_path}\n")
+    print(f"Connecting to SochDB IPC socket: {socket_path}\n")
     
     try:
         client = IpcClient.connect(socket_path)
-        print("✅ Connected to shared ToonDB!\n")
+        print("✅ Connected to shared SochDB!\n")
         
         # Initialize metrics
         client.put(b"metrics/latest/latency_p99", b"0")

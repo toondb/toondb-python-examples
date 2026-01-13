@@ -1,6 +1,6 @@
-# ToonDB Demo Notebooks
+# SochDB Demo Notebooks
 
-Interactive Jupyter notebooks for learning ToonDB features through hands-on examples.
+Interactive Jupyter notebooks for learning SochDB features through hands-on examples.
 
 ## 📚 Notebooks
 
@@ -52,7 +52,7 @@ Learn how to build data analysis agents with:
 
 ```bash
 # Install dependencies
-pip install toondb openai tiktoken jupyter
+pip install sochdb openai tiktoken jupyter
 
 # Set API key
 export OPENAI_API_KEY="your-api-key-here"
@@ -72,7 +72,7 @@ Then open any notebook and run cells sequentially.
 ## 📖 Learning Path
 
 **Beginner**: Start with Notebook 1 (Support Agent)
-- Learn core ToonDB concepts
+- Learn core SochDB concepts
 - Understand SQL, KV, and vector features
 - See TOON encoding in action
 
@@ -136,9 +136,9 @@ Traditional stack:
 CSV → Postgres → Pinecone → LLM
 ```
 
-ToonDB stack:
+SochDB stack:
 ```
-CSV → ToonDB → LLM
+CSV → SochDB → LLM
 ```
 
 ### ACID Everywhere
@@ -185,9 +185,9 @@ All demos show atomic operations:
 ## 📚 Additional Resources
 
 - [Main Demo READMEs](../) - Full Python implementations
-- [ToonDB Documentation](https://github.com/toondb/toondb)
-- [Python SDK](https://github.com/toondb/toondb-python-sdk)
-- [TOON Format Spec](https://github.com/toondb/toondb#toon-format)
+- [SochDB Documentation](https://github.com/sochdb/sochdb)
+- [Python SDK](https://github.com/sochdb/sochdb-python-sdk)
+- [TOON Format Spec](https://github.com/sochdb/sochdb#toon-format)
 
 ---
 
@@ -207,7 +207,7 @@ Please open an issue or contribute!
 
 All notebooks use:
 ```
-toondb>=0.3.3
+sochdb>=0.3.3
 openai>=1.0.0
 tiktoken>=0.5.0
 jupyter>=1.0.0

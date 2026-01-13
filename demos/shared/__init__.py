@@ -1,4 +1,4 @@
-"""Shared utilities for ToonDB demos."""
+"""Shared utilities for SochDB demos."""
 
 from .toon_encoder import rows_to_toon, ToonEncoder
 from .llm_client import LLMClient, count_tokens

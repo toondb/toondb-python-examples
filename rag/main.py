@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ToonDB RAG System - Main Entry Point
+SochDB RAG System - Main Entry Point
 
 Usage:
     python main.py ingest ./documents     # Ingest documents from a directory
@@ -20,10 +20,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 from dotenv import load_dotenv
 load_dotenv()
 
-from rag import ToonDBRAG
+from rag import SochDBRAG
 
 
-def ingest_command(rag: ToonDBRAG, path: str):
+def ingest_command(rag: SochDBRAG, path: str):
     """Ingest documents from path"""
     p = Path(path)
     
@@ -40,7 +40,7 @@ def ingest_command(rag: ToonDBRAG, path: str):
     print(f"✅ Ingested {count} chunks")
 
 
-def query_command(rag: ToonDBRAG, question: str):
+def query_command(rag: SochDBRAG, question: str):
     """Query the RAG system"""
     print(f"\n🔍 Query: {question}\n")
     
@@ -58,9 +58,9 @@ def query_command(rag: ToonDBRAG, question: str):
             print(f"      {source.chunk.content[:100]}...")
 
 
-def interactive_mode(rag: ToonDBRAG):
+def interactive_mode(rag: SochDBRAG):
     """Interactive query mode"""
-    print("\n🤖 ToonDB RAG Interactive Mode")
+    print("\n🤖 SochDB RAG Interactive Mode")
     print("   Type 'quit' or 'exit' to exit")
     print("   Type 'stats' to see statistics")
     print("-" * 50)
@@ -97,11 +97,11 @@ def interactive_mode(rag: ToonDBRAG):
             print(f"❌ Error: {e}")
 
 
-def stats_command(rag: ToonDBRAG):
+def stats_command(rag: SochDBRAG):
     """Show statistics"""
     stats = rag.get_stats()
     
-    print("\n📊 ToonDB RAG Statistics")
+    print("\n📊 SochDB RAG Statistics")
     print("-" * 30)
     print(f"Total chunks:     {stats['total_chunks']}")
     print(f"Documents:        {stats['ingested_documents']}")
@@ -112,7 +112,7 @@ def stats_command(rag: ToonDBRAG):
             print(f"  - {name}")
 
 
-def clear_command(rag: ToonDBRAG):
+def clear_command(rag: SochDBRAG):
     """Clear all data"""
     confirm = input("⚠️  Are you sure you want to clear all data? (yes/no): ")
     if confirm.lower() == 'yes':
@@ -124,7 +124,7 @@ def clear_command(rag: ToonDBRAG):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ToonDB RAG System",
+        description="SochDB RAG System",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__
     )
@@ -155,7 +155,7 @@ def main():
         return
     
     # Create RAG system
-    with ToonDBRAG() as rag:
+    with SochDBRAG() as rag:
         if args.command == 'ingest':
             ingest_command(rag, args.path)
         elif args.command == 'query':

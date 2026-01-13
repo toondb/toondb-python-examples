@@ -1,0 +1,354 @@
+[
+  {
+    "file": "test_ffi_01_database_open_close.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Database Open/Close\n======================================================================\n\n\u2713 PASS: Open database\n\u2713 PASS: Database object created\n\u2713 PASS: Close database\n\u2713 PASS: Context manager (with statement)\n\n----------------------------------------------------------------------\nResults: 4 passed, 0 failed out of 4 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 744.4601058959961
+  },
+  {
+    "file": "test_ffi_02_kv_put_get.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - KV Put/Get\n======================================================================\n\n\u2713 PASS: Put single key-value\n\u2713 PASS: Get existing key\n\u2713 PASS: Get non-existent key returns None\n\u2713 PASS: Overwrite existing key\n\u2713 PASS: Multiple keys independent\n\n----------------------------------------------------------------------\nResults: 5 passed, 0 failed out of 5 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 778.1927585601807
+  },
+  {
+    "file": "test_ffi_03_kv_delete.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - KV Delete\n======================================================================\n\n\u2713 PASS: Delete existing key\n\u2713 PASS: Other keys unaffected by delete\n\u2713 PASS: Delete non-existent key (no error)\n\u2713 PASS: Re-add after delete\n\n----------------------------------------------------------------------\nResults: 4 passed, 0 failed out of 4 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 816.8158531188965
+  },
+  {
+    "file": "test_ffi_04_kv_path_operations.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - KV Path Operations\n======================================================================\n\n\u2713 PASS: Put path\n\u2713 PASS: Get path\n\u2713 PASS: Delete path\n\u2713 PASS: Nested paths\n\n----------------------------------------------------------------------\nResults: 4 passed, 0 failed out of 4 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 536.4279747009277
+  },
+  {
+    "file": "test_ffi_05_scan_prefix.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Prefix Scanning\n======================================================================\n\n\u2713 PASS: Scan prefix setup\n\u2713 PASS: Scan with prefix\n\u2713 PASS: Prefix isolation\n\n----------------------------------------------------------------------\nResults: 3 passed, 0 failed out of 3 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 453.40895652770996
+  },
+  {
+    "file": "test_ffi_06_stats_checkpoint.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Stats and Checkpoint\n======================================================================\n\n\u2713 PASS: Get stats\n\u2713 PASS: Stats has keys\nCheckpoint: None\n\u2713 PASS: Checkpoint\n\n----------------------------------------------------------------------\nResults: 3 passed, 0 failed out of 3 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 425.69422721862793
+  },
+  {
+    "file": "test_ffi_07_transaction_context_manager.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Transaction Context Manager\n======================================================================\n\n\u2713 PASS: Context manager put\n\u2713 PASS: Auto-commit verified\n\u2713 PASS: Read own writes\n\n----------------------------------------------------------------------\nResults: 3 passed, 0 failed out of 3 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 434.75985527038574
+  },
+  {
+    "file": "test_ffi_08_transaction_rollback.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Transaction Rollback\n======================================================================\n\n\u2713 PASS: Rollback on exception\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 415.9529209136963
+  },
+  {
+    "file": "test_ffi_09_namespace_create.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Namespace Creation\n======================================================================\n\n\u2713 PASS: Create namespace\n\u2713 PASS: List namespaces\n\u2713 PASS: Get namespace\n\n----------------------------------------------------------------------\nResults: 3 passed, 0 failed out of 3 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 422.9898452758789
+  },
+  {
+    "file": "test_ffi_09_transaction_scan.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Transaction Scan\n======================================================================\n\n\u2713 PASS: Setup\n\u2713 PASS: Scan\n\n----------------------------------------------------------------------\nResults: 2 passed, 0 failed out of 2 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 426.3780117034912
+  },
+  {
+    "file": "test_ffi_10_namespace_operations.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Namespace Operations\n======================================================================\n\n\u2713 PASS: Namespace put/get\n\u2713 PASS: Namespace isolation\n\n----------------------------------------------------------------------\nResults: 2 passed, 0 failed out of 2 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 441.2341117858887
+  },
+  {
+    "file": "test_ffi_11_vector_search_real.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Vector Search (Real Azure OpenAI)\n======================================================================\n\n\n  Getting embeddings from Azure OpenAI...\n    \u2713 Got embedding for doc0 (dim=1536)\n    \u2713 Got embedding for doc1 (dim=1536)\n    \u2713 Got embedding for doc2 (dim=1536)\n\u2713 PASS: Insert 3 vectors\n\n  Searching for: 'What is Python?'\n    \u2713 Got query embedding (dim=1536)\n    \u2713 Top result: doc0 (distance=0.3504)\n      Text: 'Python is a high-level programming language'\n\u2713 PASS: Search with real query (correct result) - Found doc0\n\u2713 PASS: Multiple query searches\n\n----------------------------------------------------------------------\nResults: 3 passed, 0 failed out of 3 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 1735.6200218200684
+  },
+  {
+    "file": "test_ffi_12_query_builder_basic.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "execution_time_ms": 16.790151596069336
+  },
+  {
+    "file": "test_ffi_13_query_builder_filters.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "execution_time_ms": 18.371105194091797
+  },
+  {
+    "file": "test_ffi_14_sql_create_table.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - SQL Create Table\n======================================================================\n\nSQL not available - KNOWN ISSUE\n\u2713 PASS: Create table\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 411.8688106536865
+  },
+  {
+    "file": "test_ffi_15_sql_crud.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - SQL CRUD\n======================================================================\n\nSQL not available: No module named 'sochdb.sql_engine'\n\u2713 PASS: SQL CRUD\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 418.7657833099365
+  },
+  {
+    "file": "test_ffi_16_sql_prepared.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - SQL Prepared Statements\n======================================================================\n\nPrepared statements not available\n\u2713 PASS: Prepared\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 421.43988609313965
+  },
+  {
+    "file": "test_ffi_17_table_schema.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Table Schema\n======================================================================\n\nget_table_schema not available\n\u2713 PASS: Schema\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 436.11598014831543
+  },
+  {
+    "file": "test_ffi_18_index_policies.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Index Policies\n======================================================================\n\nIndex policies require SQL: No module named 'sochdb.sql_engine'\n\u2713 PASS: Set policy\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 422.3141670227051
+  },
+  {
+    "file": "test_ffi_19_collection_create.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Collection Create\n======================================================================\n\nCollection created\n\u2713 PASS: Create\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 430.19580841064453
+  },
+  {
+    "file": "test_ffi_20_collection_insert.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Collection Insert\n======================================================================\n\nDocument inserted\n\u2713 PASS: Insert docs\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 987.9212379455566
+  },
+  {
+    "file": "test_ffi_21_collection_search.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Collection Search\n======================================================================\n\nSearch returned 0 results\n\u2713 PASS: Search\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 1161.858081817627
+  },
+  {
+    "file": "test_ffi_22_hybrid_search_bm25.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Hybrid Search BM25\n======================================================================\n\nHybrid search collection created\n\u2713 PASS: BM25\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 430.5450916290283
+  },
+  {
+    "file": "test_ffi_23_hybrid_search_combined.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Hybrid Vector+Text\n======================================================================\n\nHybrid search: 0 results\n\u2713 PASS: Hybrid\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 1228.7170886993408
+  },
+  {
+    "file": "test_ffi_24_graph_node_properties.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Graph Node Properties\n======================================================================\n\nGraph error: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: Node props\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 421.22387886047363
+  },
+  {
+    "file": "test_ffi_25_graph_get_neighbors.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Graph Get Neighbors\n======================================================================\n\nGet neighbors error: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: Neighbors\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 432.9547882080078
+  },
+  {
+    "file": "test_ffi_26_graph_find_path.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Graph Find Path\n======================================================================\n\nfind_path error: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: Path\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 437.0303153991699
+  },
+  {
+    "file": "test_ffi_27_temporal_query_range.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Temporal Range Query\n======================================================================\n\nTemporal range error: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: Range query\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 433.884859085083
+  },
+  {
+    "file": "test_ffi_28_temporal_end_edge.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Temporal End Edge\n======================================================================\n\nend_temporal_edge not available: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: End edge\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 434.80396270751953
+  },
+  {
+    "file": "test_ffi_29_cache_ttl.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Cache TTL\n======================================================================\n\nCache TTL error: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: TTL\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 987.562894821167
+  },
+  {
+    "file": "test_ffi_30_cache_stats.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Cache Statistics\n======================================================================\n\ncache_stats not available: 'Database' object has no attribute 'cache_stats'\n\u2713 PASS: Stats\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 433.9718818664551
+  },
+  {
+    "file": "test_ffi_31_context_query_builder.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Context Query Builder\n======================================================================\n\nContextQueryBuilder not available: cannot import name 'ContextQueryBuilder' from 'sochdb' (/Users/sushanth/sochdb_v2/sochdb-python-sdk/src/sochdb/__init__.py)\n\u2713 PASS: Context builder\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 434.9071979522705
+  },
+  {
+    "file": "test_ffi_32_context_truncation.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Context Truncation\n======================================================================\n\nTruncation not available\n\u2713 PASS: Truncation\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 427.7682304382324
+  },
+  {
+    "file": "test_ffi_33_wal_checkpoint.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - WAL Checkpoint\n======================================================================\n\nCheckpoint: None\n\u2713 PASS: Checkpoint\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 439.4841194152832
+  },
+  {
+    "file": "test_ffi_34_wal_recovery.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - WAL Recovery\n======================================================================\n\n\u2713 PASS: Recovery\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 445.62292098999023
+  },
+  {
+    "file": "test_ffi_35_format_toon.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - TOON Format\n======================================================================\n\nto_toon not available: to_toon() missing 1 required positional argument: 'records'\n\u2713 PASS: TOON\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 429.6870231628418
+  },
+  {
+    "file": "test_ffi_36_format_json.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - JSON Format\n======================================================================\n\nto_json not available: to_json() missing 1 required positional argument: 'records'\n\u2713 PASS: JSON\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 435.2719783782959
+  },
+  {
+    "file": "test_ffi_37_tracing_start.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Start Trace\n======================================================================\n\nstart_trace not available: type object '_FFI' has no attribute 'lib'\n\u2713 PASS: Start trace\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 418.40314865112305
+  },
+  {
+    "file": "test_ffi_38_tracing_span.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Trace Spans\n======================================================================\n\nSpans not available: start_span() got an unexpected keyword argument 'parent_span'\n\u2713 PASS: Span\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 428.01499366760254
+  },
+  {
+    "file": "test_ffi_39_compression.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Compression\n======================================================================\n\n\u2713 PASS: Compress\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 423.01201820373535
+  },
+  {
+    "file": "test_ffi_40_error_handling_txn.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Transaction Errors\n======================================================================\n\nTransactionConflictError not imported\n\u2713 PASS: TXN error\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 436.77425384521484
+  },
+  {
+    "file": "test_ffi_41_error_handling_db.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Database Errors\n======================================================================\n\nDatabaseError available\n\u2713 PASS: DB error\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 447.71695137023926
+  },
+  {
+    "file": "test_ffi_42_vector_index_batch.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Vector Batch Insert\n======================================================================\n\nBatch inserted 3 vectors\n\u2713 PASS: Batch insert\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 1072.9789733886719
+  },
+  {
+    "file": "test_ffi_43_vector_index_search_params.py",
+    "passed": true,
+    "exit_code": 0,
+    "stdout": "\n======================================================================\nTest: FFI - Vector Search Params\n======================================================================\n\nSearch with params: 1 results\n\u2713 PASS: Search params\n\n----------------------------------------------------------------------\nResults: 1 passed, 0 failed out of 1 tests\n----------------------------------------------------------------------\n\n",
+    "stderr": "",
+    "execution_time_ms": 1007.5531005859375
+  }
+]

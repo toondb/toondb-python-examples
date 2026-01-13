@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# Start ToonDB server in IPC mode for multi-process incident response demo
+# Start SochDB server in IPC mode for multi-process incident response demo
 
 DB_PATH="./ops_db"
-SOCKET_PATH="${DB_PATH}/toondb.sock"
+SOCKET_PATH="${DB_PATH}/sochdb.sock"
 
 echo "=========================================="
-echo "ToonDB IPC Server for Incident Response"
+echo "SochDB IPC Server for Incident Response"
 echo "=========================================="
 
-# Check if toondb-server is available
-if ! command -v toondb-server &> /dev/null; then
-    echo "❌ Error: toondb-server not found in PATH"
-    echo "Please install ToonDB or add it to your PATH"
+# Check if sochdb-server is available
+if ! command -v sochdb-server &> /dev/null; then
+    echo "❌ Error: sochdb-server not found in PATH"
+    echo "Please install SochDB or add it to your PATH"
     exit 1
 fi
 
@@ -22,13 +22,13 @@ mkdir -p "$DB_PATH"
 # Stop any existing server
 if [ -e "$SOCKET_PATH" ]; then
     echo "🛑 Stopping existing server..."
-    toondb-server stop --db "$DB_PATH" 2>/dev/null || true
+    sochdb-server stop --db "$DB_PATH" 2>/dev/null || true
     sleep 1
 fi
 
 # Start server
-echo "🚀 Starting ToonDB server at $DB_PATH..."
-toondb-server --db "$DB_PATH" &
+echo "🚀 Starting SochDB server at $DB_PATH..."
+sochdb-server --db "$DB_PATH" &
 
 # Wait for server to be ready
 sleep 2
@@ -36,11 +36,11 @@ sleep 2
 # Check status
 echo ""
 echo "Checking server status..."
-toondb-server status --db "$DB_PATH"
+sochdb-server status --db "$DB_PATH"
 
 if [ $? -eq 0 ]; then
     echo ""
-    echo "✅ ToonDB server is running!"
+    echo "✅ SochDB server is running!"
     echo "   Socket: $SOCKET_PATH"
     echo ""
     echo "You can now run the incident response processes:"

@@ -6,12 +6,12 @@ from pathlib import Path
 from datetime import datetime, timezone
 import random
 
-from .memory import ToonDBMemory
-from .config import get_toondb_config
+from .memory import SochDBMemory
+from .config import get_sochdb_config
 
-async def ingest_products_data(memory: ToonDBMemory):
+async def ingest_products_data(memory: SochDBMemory):
     print("📦 Ingesting products...")
-    # Assume we are running from toondb-examples root
+    # Assume we are running from sochdb-examples root
     json_file_path = Path("donotuse/data/manybirds_products.json")
     
     if not json_file_path.exists():
@@ -48,7 +48,7 @@ async def ingest_products_data(memory: ToonDBMemory):
             
     print("✅ Ingestion complete.")
 
-async def simulate_conversation(memory: ToonDBMemory):
+async def simulate_conversation(memory: SochDBMemory):
     print("\n💬 Simulating conversation...")
     
     # Store conversation history
@@ -70,7 +70,7 @@ async def simulate_conversation(memory: ToonDBMemory):
         
     print("✅ Conversation stored.")
 
-async def demonstrate_search(memory: ToonDBMemory):
+async def demonstrate_search(memory: SochDBMemory):
     print("\n🔍 Demonstrating TOON Search...")
     
     queries = [
@@ -85,11 +85,11 @@ async def demonstrate_search(memory: ToonDBMemory):
         print(f"--- TOON Context ---\n{result}\n--------------------")
 
 async def main():
-    print("=== ToonDB eCommerce Example ===")
-    config = get_toondb_config()
+    print("=== SochDB eCommerce Example ===")
+    config = get_sochdb_config()
     print(f"Database: {config.db_path}")
     
-    memory = ToonDBMemory()
+    memory = SochDBMemory()
     
     try:
         # 1. Ingest Data

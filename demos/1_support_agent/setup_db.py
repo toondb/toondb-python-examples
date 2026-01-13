@@ -7,12 +7,12 @@ from pathlib import Path
 # Add parent directory to path to import shared utilities
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from toondb import Database
+from sochdb import Database
 from shared.embeddings import EmbeddingClient
 
 
 def setup_database(db_path: str = "./shop_db"):
-    """Initialize ToonDB with schema, sample data, and vector collection."""
+    """Initialize SochDB with schema, sample data, and vector collection."""
     
     print(f"Setting up database at {db_path}...")
     

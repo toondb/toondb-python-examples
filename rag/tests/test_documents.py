@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Unit Tests
+SochDB RAG System - Unit Tests
 """
 import sys
 from pathlib import Path

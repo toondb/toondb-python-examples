@@ -3,20 +3,20 @@ import asyncio
 from typing import Any, AsyncIterator, Dict, Optional, Sequence, Tuple
 from langchain_core.runnables import RunnableConfig
 from langgraph.checkpoint.base import BaseCheckpointSaver, Checkpoint, CheckpointMetadata, CheckpointTuple, JsonPlusSerializer
-from toondb import Database
-from .config import get_toondb_config
+from sochdb import Database
+from config import get_sochdb_config
 
-class ToonDBCheckpointer(BaseCheckpointSaver):
+class SochDBCheckpointer(BaseCheckpointSaver):
     """
-    ToonDB-backed checkpointer for LangGraph.
+    SochDB-backed checkpointer for LangGraph.
     
-    Persists graph state to ToonDB using key-value storage.
+    Persists graph state to SochDB using key-value storage.
     Keys are structured as: `checkpoints/{thread_id}/{checkpoint_id}`
     """
     
     def __init__(self, db_path: str = None):
         super().__init__()
-        self.config = get_toondb_config()
+        self.config = get_sochdb_config()
         self.db_path = db_path or self.config.db_path
         self._db = None
         self.serde = JsonPlusSerializer()
@@ -38,7 +38,7 @@ class ToonDBCheckpointer(BaseCheckpointSaver):
         else:
             # Find the latest checkpoint for this thread
             prefix = f"checkpoints/{thread_id}/"
-            # ToonDB scan returns keys in lexicographical order. 
+            # SochDB scan returns keys in lexicographical order. 
             # We assume checkpoint IDs are sortable (e.g. UUIDs or timestamps).
             # We need to find the *last* key for this prefix.
             # Since standard scan is forward, we might need to seek or scan all.

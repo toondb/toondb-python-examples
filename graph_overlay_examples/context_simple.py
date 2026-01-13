@@ -1,17 +1,16 @@
 """Simple Context Query Example - v0.3.3"""
 import sys
-sys.path.insert(0, '/Users/sushanth/toondb_v2/toondb-python-sdk/src')
 
-from toondb.database import Database
+from sochdb import Database
 
-print("=== ToonDB Context Query Example (Python) v0.3.3 ===\n")
+print("=== SochDB Context Query Example (Python) v0.3.3 ===\n")
 
 db = Database.open("./test_context_db")
 print("✓ Database opened")
 
 # Store documents
 docs = [
-    ("doc1", "ToonDB is an AI-native database with vector search"),
+    ("doc1", "SochDB is an AI-native database with vector search"),
     ("doc2", "Graph overlay provides agent memory capabilities"),
     ("doc3", "Policy hooks enable validation and access control"),
 ]

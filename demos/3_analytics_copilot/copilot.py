@@ -15,7 +15,7 @@ from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from toondb import Database, ContextQuery, DeduplicationStrategy
+from sochdb import Database, ContextQuery, DeduplicationStrategy
 from shared.toon_encoder import rows_to_toon
 from shared.llm_client import LLMClient
 from shared.embeddings import EmbeddingClient

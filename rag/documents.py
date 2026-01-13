@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Document Models and Loader
+SochDB RAG System - Document Models and Loader
 """
 from pathlib import Path
 from typing import Dict, Any, List

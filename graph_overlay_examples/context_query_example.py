@@ -1,5 +1,5 @@
 """
-ToonDB Context Query Example
+SochDB Context Query Example
 ============================
 
 Demonstrates the Context Query Engine for token-aware retrieval
@@ -13,8 +13,8 @@ Features shown:
 - Priority-ordered selection
 """
 
-import toondb
-from toondb.context import (
+import sochdb
+from sochdb.context import (
     ContextQuery, ContextChunk, ContextResult,
     DeduplicationStrategy, TokenEstimator,
     FusionStrategy
@@ -22,9 +22,9 @@ from toondb.context import (
 
 def main():
     # Open database and create context query engine
-    db = toondb.open("./context_example_db")
+    db = sochdb.open("./context_example_db")
     
-    print("=== ToonDB Context Query Example ===\n")
+    print("=== SochDB Context Query Example ===\n")
     
     # -------------------------------------------------------
     # 1. Store some documents for retrieval
@@ -34,14 +34,14 @@ def main():
     documents = [
         {
             "id": "doc1",
-            "text": "ToonDB is an AI-native database designed for LLM applications. "
+            "text": "SochDB is an AI-native database designed for LLM applications. "
                     "It features token-optimized output, O(|path|) lookups, built-in "
                     "vector search, and durable transactions.",
             "metadata": {"source": "readme", "category": "overview"}
         },
         {
             "id": "doc2", 
-            "text": "Vector search in ToonDB uses HNSW indexes for fast approximate "
+            "text": "Vector search in SochDB uses HNSW indexes for fast approximate "
                     "nearest neighbor search. The index supports both cosine and "
                     "euclidean distance metrics.",
             "metadata": {"source": "docs", "category": "features"}
@@ -49,7 +49,7 @@ def main():
         {
             "id": "doc3",
             "text": "The Graph Overlay feature allows building lightweight graph "
-                    "structures on top of ToonDB's key-value storage. It supports "
+                    "structures on top of SochDB's key-value storage. It supports "
                     "typed edges, BFS/DFS traversal, and property storage.",
             "metadata": {"source": "docs", "category": "features"}
         },
@@ -62,7 +62,7 @@ def main():
         },
         {
             "id": "doc5",
-            "text": "ToonDB supports multiple deployment surfaces including embedded mode, "
+            "text": "SochDB supports multiple deployment surfaces including embedded mode, "
                     "IPC sockets, and gRPC. Use the unified connect() API with URI "
                     "patterns like file://, ipc://, or grpc://.",
             "metadata": {"source": "docs", "category": "deployment"}
@@ -118,9 +118,9 @@ def main():
     
     # Store some similar documents
     similar_docs = [
-        {"id": "dup1", "text": "ToonDB supports vector search using HNSW indexes."},
-        {"id": "dup2", "text": "Vector search in ToonDB uses HNSW indexes."},  # Similar
-        {"id": "dup3", "text": "HNSW indexes power ToonDB's vector search."},   # Similar
+        {"id": "dup1", "text": "SochDB supports vector search using HNSW indexes."},
+        {"id": "dup2", "text": "Vector search in SochDB uses HNSW indexes."},  # Similar
+        {"id": "dup3", "text": "HNSW indexes power SochDB's vector search."},   # Similar
         {"id": "unique", "text": "Policy hooks enable validation and access control."},
     ]
     for doc in similar_docs:
@@ -237,7 +237,7 @@ def main():
     
     query = (ContextQuery(db, collection="docs")
         .with_token_budget(300)
-        .with_query("ToonDB features")
+        .with_query("SochDB features")
         .with_top_k(2))
     
     result = query.execute()

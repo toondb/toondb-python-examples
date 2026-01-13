@@ -1,5 +1,5 @@
 """
-ToonDB Graph Overlay Example
+SochDB Graph Overlay Example
 ============================
 
 Demonstrates the Graph Overlay feature for agent memory,
@@ -13,15 +13,15 @@ Features shown:
 - Neighbor queries
 """
 
-import toondb
-from toondb import GraphOverlay, GraphNode, GraphEdge
+import sochdb
+from sochdb import GraphOverlay, GraphNode, GraphEdge
 
 def main():
     # Open database and create graph overlay
-    db = toondb.open("./graph_example_db")
+    db = sochdb.open("./graph_example_db")
     graph = GraphOverlay(db, namespace="memory")
     
-    print("=== ToonDB Graph Overlay Example ===\n")
+    print("=== SochDB Graph Overlay Example ===\n")
     
     # Create nodes representing an AI agent's memory
     print("1. Creating nodes...")
@@ -47,10 +47,10 @@ def main():
     
     # Create project nodes
     project = GraphNode(
-        id="project_toondb",
+        id="project_sochdb",
         type="project",
         properties={
-            "name": "ToonDB",
+            "name": "SochDB",
             "status": "active",
             "tech_stack": ["rust", "python", "go"]
         }
@@ -76,19 +76,19 @@ def main():
     # Create edges
     print("\n2. Creating edges...")
     
-    # Alice works on ToonDB
+    # Alice works on SochDB
     graph.add_edge(GraphEdge(
         from_id="user_alice",
         edge_type="works_on",
-        to_id="project_toondb",
+        to_id="project_sochdb",
         properties={"role": "lead developer", "since": "2024-01"}
     ))
     
-    # Bob works on ToonDB  
+    # Bob works on SochDB  
     graph.add_edge(GraphEdge(
         from_id="user_bob",
         edge_type="works_on",
-        to_id="project_toondb",
+        to_id="project_sochdb",
         properties={"role": "data engineer"}
     ))
     
@@ -100,9 +100,9 @@ def main():
         properties={"context": "work colleagues"}
     ))
     
-    # ToonDB has vector search feature
+    # SochDB has vector search feature
     graph.add_edge(GraphEdge(
-        from_id="project_toondb",
+        from_id="project_sochdb",
         edge_type="has_feature",
         to_id="concept_vector_search"
     ))
@@ -132,7 +132,7 @@ def main():
     
     # Get incoming edges
     print("\n5. Getting incoming edges...")
-    incoming = graph.get_incoming_edges("project_toondb")
+    incoming = graph.get_incoming_edges("project_sochdb")
     for edge in incoming:
         print(f"   {edge.from_id} --[{edge.edge_type}]--> {edge.to_id}")
     
@@ -147,8 +147,8 @@ def main():
     print(f"   Visited (DFS): {visited_dfs}")
     
     # Get neighbors
-    print("\n8. Getting neighbors of ToonDB project...")
-    neighbors = graph.get_neighbors("project_toondb", direction="both")
+    print("\n8. Getting neighbors of SochDB project...")
+    neighbors = graph.get_neighbors("project_sochdb", direction="both")
     for n in neighbors:
         print(f"   Neighbor: {n.id} ({n.type})")
     

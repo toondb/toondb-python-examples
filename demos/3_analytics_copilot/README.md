@@ -1,6 +1,6 @@
 # Analytics Copilot Demo
 
-Demo-grade analytics copilot showcasing ToonDB's SQL, TOON encoding, vector search, and token-optimized context assembly for spreadsheet data analysis.
+Demo-grade analytics copilot showcasing SochDB's SQL, TOON encoding, vector search, and token-optimized context assembly for spreadsheet data analysis.
 
 ## What This Demo Shows
 
@@ -16,7 +16,7 @@ Demo-grade analytics copilot showcasing ToonDB's SQL, TOON encoding, vector sear
 ### 1. Install Dependencies
 
 ```bash
-pip install toondb openai tiktoken
+pip install sochdb openai tiktoken
 ```
 
 ### 2. Set OpenAI API Key
@@ -219,7 +219,7 @@ Actual measurements from this demo:
 
 ### No Separate Vector DB
 
-Everything in one ToonDB instance:
+Everything in one SochDB instance:
 - SQL tables for structured data
 - Vector collection for text search
 - No ETL between systems
@@ -251,7 +251,7 @@ Won't exceed budget even with many matches.
 ## Requirements
 
 ```
-toondb>=0.3.3
+sochdb>=0.3.3
 openai>=1.0.0
 tiktoken>=0.5.0
 ```

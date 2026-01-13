@@ -101,14 +101,14 @@ def print_comparison(comparison: Dict[str, Any]):
 def main():
     """Run token comparison demo."""
     
-    # Example data from ToonDB README
+    # Example data from SochDB README
     example_rows = [
         {"id": 1, "name": "Alice", "email": "alice@example.com", "age": 28},
         {"id": 2, "name": "Bob", "email": "bob@example.com", "age": 34},
         {"id": 3, "name": "Carol", "email": "carol@example.com", "age": 42}
     ]
     
-    print("\n🔍 Example 1: Simple User Table (from ToonDB README)")
+    print("\n🔍 Example 1: Simple User Table (from SochDB README)")
     comparison = compare_formats(example_rows, "users", model="gpt-4")
     print_comparison(comparison)
     

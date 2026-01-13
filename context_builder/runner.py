@@ -1,11 +1,11 @@
 """
-Context Query Builder Demo with ToonDB Integration
+Context Query Builder Demo with SochDB Integration
 
 Demonstrates priority-based context assembly under token budgets.
 """
 import asyncio
-from .context_builder import ContextQueryBuilder
-from toondb import Database
+from context_builder import ContextQueryBuilder
+from sochdb import Database
 
 
 def demo_basic_assembly():
@@ -108,13 +108,13 @@ def demo_tight_budget():
     print(f"   - Older history/retrieval (priority 3) ✗ (truncated)")
 
 
-def demo_with_toondb():
-    """Demo 3: ToonDB integration for retrieval"""
+def demo_with_sochdb():
+    """Demo 3: SochDB integration for retrieval"""
     print("\n\n" + "=" * 70)
-    print("Demo 3: Context Builder with ToonDB Retrieval")
+    print("Demo 3: Context Builder with SochDB Retrieval")
     print("=" * 70)
     
-    # Store some facts in ToonDB
+    # Store some facts in SochDB
     db = Database.open("./demo_context_db")
     
     facts = [
@@ -147,22 +147,22 @@ def demo_with_toondb():
     print(f"  Tokens Used: {stats['total_tokens']}/{stats['budget']}")
     print(f"  Utilization: {stats['utilization']:.1f}%")
     
-    print(f"\n📄 Context with ToonDB TOON Format:")
+    print(f"\n📄 Context with SochDB TOON Format:")
     print("-" * 70)
     print(context)
     print("-" * 70)
     
     db.close()
-    print("\n✓ ToonDB integration complete!")
+    print("\n✓ SochDB integration complete!")
 
 
 async def main():
     """Run all demos"""
-    print("\n🚀 ToonDB Context Query Builder Examples\n")
+    print("\n🚀 SochDB Context Query Builder Examples\n")
     
     demo_basic_assembly()
     demo_tight_budget()
-    demo_with_toondb()
+    demo_with_sochdb()
     
     print("\n\n" + "=" * 70)
     print("✅ All demos complete!")

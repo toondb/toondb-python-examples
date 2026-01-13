@@ -1,6 +1,6 @@
 # Support Agent Demo
 
-Demo-grade support agent showcasing ToonDB's SQL, KV, vector RAG, TOON encoding, and ACID transactions.
+Demo-grade support agent showcasing SochDB's SQL, KV, vector RAG, TOON encoding, and ACID transactions.
 
 ## What This Demo Shows
 
@@ -16,7 +16,7 @@ Demo-grade support agent showcasing ToonDB's SQL, KV, vector RAG, TOON encoding,
 ### 1. Install Dependencies
 
 ```bash
-pip install toondb openai tiktoken
+pip install sochdb openai tiktoken
 ```
 
 ### 2. Set OpenAI API Key
@@ -119,7 +119,7 @@ Tokens: ~55
 
 ### No Glue Code
 
-Everything lives in one ToonDB instance:
+Everything lives in one SochDB instance:
 - SQL: Operational data (orders, tickets)
 - KV: User preferences
 - Vectors: Policy documents with HNSW index

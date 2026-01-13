@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Main Entry Point
+SochDB Agent Memory System - Main Entry Point
 """
 import sys
 import argparse
@@ -13,7 +13,7 @@ from scenarios.customer_support import get_scenario
 def print_header():
     """Print welcome header"""
     print("\n" + "="*70)
-    print("  🤖 ToonDB Agent Memory System - Live Demonstration")
+    print("  🤖 SochDB Agent Memory System - Live Demonstration")
     print("="*70 + "\n")
 
 
@@ -154,7 +154,7 @@ def run_interactive(session_id: str = None):
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description="ToonDB Agent Memory System - Live Agent Demonstration"
+        description="SochDB Agent Memory System - Live Agent Demonstration"
     )
     
     parser.add_argument(

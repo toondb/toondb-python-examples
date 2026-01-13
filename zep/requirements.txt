@@ -1,1 +1,1 @@
-toondb-client>=0.3.3
+sochdb>=0.4.0

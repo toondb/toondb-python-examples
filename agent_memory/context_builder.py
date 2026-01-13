@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Context Builder
+SochDB Agent Memory System - Context Builder
 Builds conversation context from retrieved memories
 """
 import time

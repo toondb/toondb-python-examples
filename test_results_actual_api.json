@@ -1,0 +1,80 @@
+[
+  {
+    "test": "Database Setup",
+    "passed": true,
+    "message": "\u2713 Database opened successfully",
+    "timestamp": "2026-01-09T07:24:19.717409"
+  },
+  {
+    "test": "Basic KV Operations",
+    "passed": true,
+    "message": "",
+    "timestamp": "2026-01-09T07:24:19.739592"
+  },
+  {
+    "test": "Path Operations",
+    "passed": true,
+    "message": "",
+    "timestamp": "2026-01-09T07:24:19.760642"
+  },
+  {
+    "test": "Transactions",
+    "passed": true,
+    "message": "",
+    "timestamp": "2026-01-09T07:24:19.773594"
+  },
+  {
+    "test": "SQL Operations",
+    "passed": false,
+    "message": "No module named 'sochdb.sql_engine'",
+    "timestamp": "2026-01-09T07:24:19.773693"
+  },
+  {
+    "test": "Namespaces",
+    "passed": true,
+    "message": "",
+    "timestamp": "2026-01-09T07:24:19.787588"
+  },
+  {
+    "test": "Prefix Scanning",
+    "passed": true,
+    "message": "",
+    "timestamp": "2026-01-09T07:24:19.802562"
+  },
+  {
+    "test": "Vector Operations",
+    "passed": false,
+    "message": "Search failed: search() takes from 3 to 4 positional arguments but 6 were given",
+    "timestamp": "2026-01-09T07:24:20.798361"
+  },
+  {
+    "test": "Graph Operations",
+    "passed": false,
+    "message": "type object '_FFI' has no attribute 'lib'",
+    "timestamp": "2026-01-09T07:24:20.798530"
+  },
+  {
+    "test": "Temporal Graph",
+    "passed": false,
+    "message": "type object '_FFI' has no attribute 'lib'",
+    "timestamp": "2026-01-09T07:24:20.798561"
+  },
+  {
+    "test": "Semantic Cache",
+    "passed": false,
+    "message": "type object '_FFI' has no attribute 'lib'",
+    "timestamp": "2026-01-09T07:24:20.911661"
+  },
+  {
+    "test": "Stats & Index Policies",
+    "passed": false,
+    "message": "No module named 'sochdb.sql_engine'",
+    "timestamp": "2026-01-09T07:24:20.912002"
+  },
+  {
+    "test": "Database Teardown",
+    "passed": true,
+    "message": "\u2713 Database closed successfully",
+    "timestamp": "2026-01-09T07:24:20.923063"
+  }
+]

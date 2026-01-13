@@ -1,3 +1,3 @@
 """
-ToonDB Agent Memory System - Scenarios Package
+SochDB Agent Memory System - Scenarios Package
 """

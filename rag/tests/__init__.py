@@ -1,3 +1,3 @@
 """
-ToonDB RAG System - Tests Package Init
+SochDB RAG System - Tests Package Init
 """

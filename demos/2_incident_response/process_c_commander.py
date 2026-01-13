@@ -11,7 +11,7 @@ from typing import Dict, Any, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from toondb import IpcClient, ContextQuery, DeduplicationStrategy
+from sochdb import IpcClient, ContextQuery, DeduplicationStrategy
 from shared.llm_client import LLMClient
 from shared.embeddings import EmbeddingClient
 
@@ -157,16 +157,16 @@ Provide:
 
 def main():
     """Run incident commander."""
-    socket_path = "./ops_db/toondb.sock"
+    socket_path = "./ops_db/sochdb.sock"
     
     print("="*60)
     print("PROCESS C: INCIDENT COMMANDER")
     print("="*60)
-    print(f"Connecting to ToonDB IPC socket: {socket_path}\n")
+    print(f"Connecting to SochDB IPC socket: {socket_path}\n")
     
     try:
         commander = IncidentCommander(socket_path)
-        print("✅ Connected to shared ToonDB!\n")
+        print("✅ Connected to shared SochDB!\n")
         
         commander.monitor_loop()
         

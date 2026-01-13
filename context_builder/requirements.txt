@@ -1,4 +1,4 @@
-toondb-client>=0.3.3
+sochdb>=0.4.0
 openai>=1.0.0
 python-dotenv>=1.0.0
 numpy>=1.24.0

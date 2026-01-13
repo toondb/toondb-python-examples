@@ -1,0 +1,889 @@
+{
+  "run_meta": {
+    "seed": 1337,
+    "scale": "small",
+    "mode": "embedded",
+    "llm_mode": "real",
+    "sdk_version": "0.3.3",
+    "started_at": "2026-01-10T12:18:31.774950",
+    "duration_s": 752.5858309268951
+  },
+  "scenario_scores": {
+    "02_sales_crm": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 116.11604690551758,
+            "transaction": 19.9429988861084,
+            "rollback": 5.049705505371094,
+            "batch_update": 19.579172134399414
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 90,
+          "tokens": 6150
+        }
+      }
+    },
+    "03_ecommerce": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [
+            1.0,
+            0.4444444444444444,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "avg_ndcg": 0.6488888888888888,
+          "recall_scores": [
+            1.0,
+            0.4444444444444444,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "avg_recall": 0.6488888888888888,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 314.9380683898926,
+            "hybrid_search": 24.196338653564453,
+            "metadata_filter": 64.55516815185547,
+            "range_query": 86.53783798217773
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 110,
+          "tokens": 7900
+        }
+      }
+    },
+    "04_legal_document_search": {
+      "pass": false,
+      "metrics": {
+        "passed": false,
+        "errors": [
+          "'Database' object has no attribute 'drop_namespace'"
+        ],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {},
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 0,
+          "tokens": 0
+        }
+      }
+    },
+    "05_healthcare_patient_records": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 173.18105697631836,
+            "phi_search": 16.77107810974121
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 52,
+          "tokens": 5080
+        }
+      }
+    },
+    "06_realtime_chat_search": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 718.0149555206299,
+            "time_query": 0.0030994415283203125,
+            "recent_search": 33.14709663391113
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 202,
+          "tokens": 11080
+        }
+      }
+    },
+    "07_code_repository_search": {
+      "pass": false,
+      "metrics": {
+        "passed": false,
+        "errors": [
+          "No results for semantic code search"
+        ],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 286.78083419799805,
+            "code_search": 21.193981170654297,
+            "language_filter": 0.03910064697265625,
+            "semantic_search": 5.357027053833008
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 83,
+          "tokens": 10130
+        }
+      }
+    },
+    "08_academic_paper_citations": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 194.07987594604492,
+            "citation_update": 398.2231616973877,
+            "update_citation": 11.278867721557617
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 60,
+          "tokens": 7500
+        }
+      }
+    },
+    "09_social_media_feed_ranking": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 421.4668273925781,
+            "recency_query": 118.52383613586426,
+            "engagement_ranking": 0.00095367431640625
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 120,
+          "tokens": 9000
+        }
+      }
+    },
+    "10_mcp_tool_integration": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 117.9342269897461,
+            "tool_discovery": 17.210006713867188,
+            "context_build": 31.126022338867188,
+            "tool_result_update": 14.59503173828125
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 48,
+          "tokens": 3925
+        }
+      }
+    },
+    "11_financial_ledger": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 100.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 331.207275390625
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 100.0,
+          "events_count": 110
+        },
+        "llm": {
+          "calls": 100,
+          "tokens": 5000
+        }
+      }
+    },
+    "12_temporal_queries": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 100.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 579.0541172027588,
+            "point_in_time_query": 8.45654010772705,
+            "range_query": 28.379201889038086,
+            "temporal_query": 7.513082027435304
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 100.0,
+          "events_count": 90
+        },
+        "llm": {
+          "calls": 180,
+          "tokens": 11700
+        }
+      }
+    },
+    "13_crash_recovery": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 100.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {},
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 10,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 100.0,
+          "events_count": 10
+        },
+        "llm": {
+          "calls": 20,
+          "tokens": 900
+        }
+      }
+    },
+    "14_context_builder": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 100.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": 53.95752895752896
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 221.7249870300293,
+            "context_build": 0.01227855682373046
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 100.0,
+          "events_count": 30
+        },
+        "llm": {
+          "calls": 60,
+          "tokens": 6000
+        }
+      }
+    },
+    "15_policy_enforcement": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 100.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "insert": 71.11501693725586,
+            "policy_eval": 0.0020384788513183585
+          },
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": 1.0,
+          "deny_with_explanation_pct": 100.0,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 100.0,
+          "events_count": 60
+        },
+        "llm": {
+          "calls": 20,
+          "tokens": 1000
+        }
+      }
+    }
+  },
+  "global_metrics": {
+    "p95_latency_ms": {
+      "insert": 641.5864944458007,
+      "transaction": 19.9429988861084,
+      "rollback": 5.049705505371094,
+      "batch_update": 19.579172134399414,
+      "hybrid_search": 24.196338653564453,
+      "metadata_filter": 64.55516815185547,
+      "range_query": 72.09038734436035,
+      "phi_search": 16.77107810974121,
+      "time_query": 0.0030994415283203125,
+      "recent_search": 33.14709663391113,
+      "code_search": 21.193981170654297,
+      "language_filter": 0.03910064697265625,
+      "semantic_search": 5.357027053833008,
+      "citation_update": 398.2231616973877,
+      "update_citation": 11.278867721557617,
+      "recency_query": 118.52383613586426,
+      "engagement_ranking": 0.00095367431640625,
+      "tool_discovery": 17.210006713867188,
+      "context_build": 7.795095443725586,
+      "tool_result_update": 14.59503173828125,
+      "point_in_time_query": 8.45654010772705,
+      "temporal_query": 7.513082027435304,
+      "policy_eval": 0.0020384788513183585
+    },
+    "error_rate": 0.1428571428571429,
+    "llm_usage": {
+      "total_calls": 1145,
+      "total_tokens": 85365
+    }
+  },
+  "overall": {
+    "pass": false,
+    "score_0_100": 85.71428571428571,
+    "passed_scenarios": 12,
+    "total_scenarios": 14,
+    "failed_checks": [
+      "04_legal_document_search: 'Database' object has no attribute 'drop_namespace'",
+      "07_code_repository_search: No results for semantic code search"
+    ]
+  }
+}

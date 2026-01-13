@@ -4,8 +4,8 @@ import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
-from .memory import ToonDBMemory
-from .config import get_toondb_config
+from .memory import SochDBMemory
+from .config import get_sochdb_config
 
 def get_wizard_of_oz_text() -> str:
     # Adjust path to where the text file is located
@@ -35,7 +35,7 @@ def chunk_text(text: str, chunk_size: int = 1000) -> list[str]:
         
     return chunks
 
-async def ingest_book(memory: ToonDBMemory):
+async def ingest_book(memory: SochDBMemory):
     print("📦 Ingesting Wizard of Oz...")
     text = get_wizard_of_oz_text()
     if not text:
@@ -60,7 +60,7 @@ async def ingest_book(memory: ToonDBMemory):
             
     print("✅ Ingestion complete.")
 
-async def demonstrate_search(memory: ToonDBMemory):
+async def demonstrate_search(memory: SochDBMemory):
     print("\n🔍 Demonstrating Search...")
     queries = [
         "What color are the shoes?",
@@ -74,11 +74,11 @@ async def demonstrate_search(memory: ToonDBMemory):
         print(f"--- TOON Context ---\n{result}\n--------------------")
 
 async def main():
-    print("=== ToonDB Wizard of Oz Example ===")
-    config = get_toondb_config()
+    print("=== SochDB Wizard of Oz Example ===")
+    config = get_sochdb_config()
     print(f"Database: {config.db_path}")
     
-    memory = ToonDBMemory()
+    memory = SochDBMemory()
     
     try:
         await ingest_book(memory)

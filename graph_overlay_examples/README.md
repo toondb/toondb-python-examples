@@ -1,6 +1,6 @@
-# ToonDB New Features Examples
+# SochDB New Features Examples
 
-This directory contains examples demonstrating the new features in ToonDB v0.3.x (currently unreleased).
+This directory contains examples demonstrating the new features in SochDB v0.3.x (currently unreleased).
 
 ## Features Demonstrated
 
@@ -14,9 +14,9 @@ Lightweight graph layer on KV storage for agent memory:
 - **Queries**: Find neighbors, get nodes by type, shortest path
 
 ```python
-from toondb import GraphOverlay, GraphNode, GraphEdge
+from sochdb import GraphOverlay, GraphNode, GraphEdge
 
-db = toondb.open("./db")
+db = sochdb.open("./db")
 graph = GraphOverlay(db, namespace="memory")
 
 # Create nodes
@@ -40,7 +40,7 @@ Trigger-based guardrails for agent operations:
 - **Rate Limiting**: Token bucket algorithm per agent/session
 
 ```python
-from toondb.policy import PolicyEngine, before_write, PolicyAction
+from sochdb.policy import PolicyEngine, before_write, PolicyAction
 
 engine = PolicyEngine(db)
 
@@ -61,7 +61,7 @@ Context-driven dynamic binding for multi-agent systems:
 - **Failover**: Automatic failover to backup agents
 
 ```python
-from toondb.routing import AgentRegistry, ToolRouter, ToolCategory, RoutingStrategy
+from sochdb.routing import AgentRegistry, ToolRouter, ToolCategory, RoutingStrategy
 
 registry = AgentRegistry(db)
 router = ToolRouter(registry, default_strategy=RoutingStrategy.PRIORITY)
@@ -88,7 +88,7 @@ Token-aware retrieval for LLM applications:
 - **Token Estimators**: GPT-4, Claude, or custom
 
 ```python
-from toondb.context import ContextQuery, DeduplicationStrategy
+from sochdb.context import ContextQuery, DeduplicationStrategy
 
 query = (ContextQuery(db, collection="docs")
     .with_token_budget(4000)
@@ -102,9 +102,9 @@ print(f"Used {result.total_tokens} tokens")
 
 ## Running the Examples
 
-1. Install the ToonDB Python SDK:
+1. Install the SochDB Python SDK:
    ```bash
-   pip install toondb-client
+   pip install sochdb-client
    ```
 
 2. Run any example:
@@ -117,12 +117,12 @@ print(f"Used {result.total_tokens} tokens")
 
 ## Related Documentation
 
-- [Graph Overlay Guide](../../toondb/docs/guides/graph-overlay.md)
-- [Policy Hooks Guide](../../toondb/docs/guides/policy-hooks.md)
-- [Tool Routing Guide](../../toondb/docs/guides/tool-routing.md)
-- [Context Query Guide](../../toondb/docs/guides/context-query.md)
+- [Graph Overlay Guide](../../sochdb/docs/guides/graph-overlay.md)
+- [Policy Hooks Guide](../../sochdb/docs/guides/policy-hooks.md)
+- [Tool Routing Guide](../../sochdb/docs/guides/tool-routing.md)
+- [Context Query Guide](../../sochdb/docs/guides/context-query.md)
 
 ## Requirements
 
 - Python 3.8+
-- ToonDB v0.3.x or later
+- SochDB v0.3.x or later

@@ -1,0 +1,63 @@
+{
+  "run_meta": {
+    "seed": 42,
+    "scale": "small",
+    "mode": "embedded",
+    "sdk_version": "0.3.3",
+    "started_at": "2026-01-12T22:16:00.055116",
+    "duration_s": 0.0
+  },
+  "scenario_scores": {
+    "01_multi_tenant_support": {
+      "pass": true,
+      "metrics": {
+        "passed": true,
+        "errors": [],
+        "correctness": {
+          "leakage_rate": 0.0,
+          "atomicity_failures": 0,
+          "consistency_failures": 0
+        },
+        "retrieval": {
+          "ndcg_at_10": 0.0719741384391281,
+          "recall_at_10": 0.2,
+          "mrr": null
+        },
+        "cache": {
+          "hit_rate": 0.65
+        },
+        "context": {
+          "avg_token_count": null,
+          "p95_token_count": null
+        },
+        "performance": {
+          "p95_latencies_ms": {
+            "vector_search": 5.031454563140869,
+            "hybrid_search": 9.770405292510986
+          }
+        },
+        "transactions": {
+          "conflict_rate": null,
+          "avg_retries": null
+        },
+        "audit": {
+          "coverage": null
+        }
+      }
+    }
+  },
+  "global_metrics": {
+    "p95_latency_ms": {
+      "vector_search": 5.031454563140869,
+      "hybrid_search": 9.770405292510986
+    },
+    "error_rate": 0.0
+  },
+  "overall": {
+    "pass": true,
+    "score_0_100": 100.0,
+    "passed_scenarios": 1,
+    "total_scenarios": 1,
+    "failed_checks": []
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "run_meta": {
+    "seed": 1337,
+    "scale": "small",
+    "mode": "embedded",
+    "llm_mode": "real",
+    "sdk_version": "0.3.3",
+    "started_at": "2026-01-09T18:30:29.641792",
+    "duration_s": 47.71681618690491
+  },
+  "scenario_scores": {
+    "11_financial_ledger": {
+      "pass": false,
+      "metrics": {
+        "passed": false,
+        "errors": [
+          "'Collection' object has no attribute 'items'"
+        ],
+        "gate_metrics": {
+          "G1_leakage_rate": 0.0,
+          "G2_atomicity_failures": 0,
+          "G3_double_post_rate": 0.0,
+          "G4_time_travel_mismatches": 0,
+          "G5_crash_consistency_violations": 0,
+          "G6_audit_coverage": 0.0,
+          "G7_schema_validation_failures": 0
+        },
+        "quality": {
+          "ndcg_scores": [],
+          "avg_ndcg": null,
+          "recall_scores": [],
+          "avg_recall": null,
+          "precision_scores": [],
+          "mrr_scores": [],
+          "avg_mrr": null,
+          "cache_hit_rate": null,
+          "cache_false_hit_rate": 0.0
+        },
+        "context": {
+          "budget_violations": 0,
+          "strict_truncation_failures": 0,
+          "token_reduction_pct": null
+        },
+        "transactions": {
+          "recovery_success_rate": null,
+          "avg_retries": null,
+          "conflict_rate": null
+        },
+        "performance": {
+          "p95_latencies_ms": {},
+          "throughput_ops_per_sec": null
+        },
+        "operational": {
+          "recovery_replayed_entries": 0,
+          "policy_accuracy": null,
+          "deny_with_explanation_pct": null,
+          "tool_call_success_rate": null
+        },
+        "audit": {
+          "coverage": 0.0,
+          "events_count": 0
+        },
+        "llm": {
+          "calls": 0,
+          "tokens": 0
+        }
+      }
+    }
+  },
+  "global_metrics": {
+    "p95_latency_ms": {},
+    "error_rate": 1.0,
+    "llm_usage": {
+      "total_calls": 0,
+      "total_tokens": 0
+    }
+  },
+  "overall": {
+    "pass": false,
+    "score_0_100": 0.0,
+    "passed_scenarios": 0,
+    "total_scenarios": 1,
+    "failed_checks": [
+      "11_financial_ledger: 'Collection' object has no attribute 'items'"
+    ]
+  }
+}

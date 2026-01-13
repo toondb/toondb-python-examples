@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Research Assistant Scenario
+SochDB Agent Memory System - Research Assistant Scenario
 A more complex scenario with multi-topic research, data aggregation, and cross-references
 """
 from typing import List

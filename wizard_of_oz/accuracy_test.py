@@ -1,10 +1,10 @@
 import asyncio
-from .memory import ToonDBMemory
+from .memory import SochDBMemory
 from .runner import ingest_book
 
 async def run_accuracy_test():
-    print("=== ToonDB Wizard of Oz Accuracy Test ===")
-    memory = ToonDBMemory()
+    print("=== SochDB Wizard of Oz Accuracy Test ===")
+    memory = SochDBMemory()
     
     await ingest_book(memory)
     

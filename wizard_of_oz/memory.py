@@ -5,8 +5,8 @@ import numpy as np
 from dataclasses import dataclass
 from typing import List, Optional, Dict
 from openai import AzureOpenAI
-from toondb import Database
-from .config import get_toondb_config, get_azure_config
+from sochdb import Database
+from .config import get_sochdb_config, get_azure_config
 
 @dataclass
 class Episode:
@@ -35,13 +35,13 @@ class Episode:
             embedding=embedding
         )
 
-class ToonDBMemory:
+class SochDBMemory:
     """
-    ToonDB-backed long-term memory.
+    SochDB-backed long-term memory.
     """
     
     def __init__(self, db_path: str = None):
-        self.config = get_toondb_config()
+        self.config = get_sochdb_config()
         self.azure_config = get_azure_config()
         self.db_path = db_path or self.config.db_path
         self._db = None

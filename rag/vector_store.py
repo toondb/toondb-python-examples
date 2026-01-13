@@ -1,15 +1,15 @@
 """
-ToonDB RAG System - Vector Store using ToonDB
+SochDB RAG System - Vector Store using SochDB
 """
 from typing import List, Optional
 from dataclasses import dataclass
 import json
 import numpy as np
 
-from toondb import Database
+from sochdb import Database
 
 from documents import Chunk
-from config import get_toondb_config
+from config import get_sochdb_config
 
 
 @dataclass
@@ -19,11 +19,11 @@ class SearchResult:
     score: float
 
 
-class ToonDBVectorStore:
+class SochDBVectorStore:
     """
-    Vector Store implementation using ToonDB
+    Vector Store implementation using SochDB
     
-    Uses ToonDB's key-value store for metadata and HNSW index for vectors.
+    Uses SochDB's key-value store for metadata and HNSW index for vectors.
     
     Key structure:
     - chunks/{chunk_id} -> chunk content and metadata (JSON)
@@ -31,7 +31,7 @@ class ToonDBVectorStore:
     """
     
     def __init__(self, db_path: str = None):
-        config = get_toondb_config()
+        config = get_sochdb_config()
         self.db_path = db_path or config.db_path
         self._db = None
         self._chunks_cache = {}  # In-memory cache for fast lookup
@@ -74,13 +74,13 @@ class ToonDBVectorStore:
             self._chunks_cache[chunk_id] = chunk
             self._vectors_cache[chunk_id] = embeddings[i]
         
-        print(f"✅ Upserted {len(chunks)} chunks to ToonDB")
+        print(f"✅ Upserted {len(chunks)} chunks to SochDB")
     
     def search(self, query_embedding: np.ndarray, top_k: int = 5) -> List[SearchResult]:
         """
         Search for similar chunks using cosine similarity
         
-        This is a brute-force search - for production, use ToonDB's HNSW index
+        This is a brute-force search - for production, use SochDB's HNSW index
         """
         # Load all vectors if cache is empty
         if not self._vectors_cache:

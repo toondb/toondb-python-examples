@@ -1,13 +1,13 @@
-# ToonDB RAG System
+# SochDB RAG System
 
-A production-ready RAG (Retrieval-Augmented Generation) system built with ToonDB and Azure OpenAI.
+A production-ready RAG (Retrieval-Augmented Generation) system built with SochDB and Azure OpenAI.
 
 ## Features
 
 - 📄 **PDF/Markdown/Text ingestion** - Load documents from various formats
 - 🔧 **Semantic chunking** - Smart text splitting for optimal retrieval
 - 🧠 **Azure OpenAI embeddings** - High-quality vector representations
-- 🗄️ **ToonDB vector storage** - Fast similarity search with HNSW
+- 🗄️ **SochDB vector storage** - Fast similarity search with HNSW
 - 🔍 **Multiple retrieval strategies** - Basic, threshold, and MMR
 - 💬 **Citation-aware generation** - Answers with source references
 - ✅ **Comprehensive testing** - Unit and integration tests
@@ -17,7 +17,7 @@ A production-ready RAG (Retrieval-Augmented Generation) system built with ToonDB
 ### 1. Install Dependencies
 
 ```bash
-cd toondb_rag
+cd sochdb_rag
 source ../.venv/bin/activate  # Use existing venv
 pip install -r requirements.txt
 ```
@@ -56,13 +56,13 @@ python main.py interactive
 ## Project Structure
 
 ```
-toondb_rag/
+sochdb_rag/
 ├── __init__.py         # Package init
 ├── config.py           # Configuration from .env
 ├── documents.py        # Document/Chunk models, loaders
 ├── chunking.py         # Text chunking strategies
 ├── embeddings.py       # Azure OpenAI embeddings
-├── vector_store.py     # ToonDB vector storage
+├── vector_store.py     # SochDB vector storage
 ├── retrieval.py        # Retrieval strategies
 ├── generation.py       # LLM generation with Azure
 ├── rag.py              # Main RAG class
@@ -81,10 +81,10 @@ toondb_rag/
 ### Python API
 
 ```python
-from rag import ToonDBRAG
+from rag import SochDBRAG
 
 # Create RAG system
-with ToonDBRAG() as rag:
+with SochDBRAG() as rag:
     # Ingest documents
     rag.ingest_directory("./documents")
     
@@ -130,7 +130,7 @@ pytest tests/test_documents.py -v
 
 ```
 ┌─────────────┐    ┌───────────┐    ┌────────────┐    ┌─────────┐
-│  Documents  │───▶│  Chunking │───▶│ Embeddings │───▶│ ToonDB  │
+│  Documents  │───▶│  Chunking │───▶│ Embeddings │───▶│ SochDB  │
 │  (PDF/MD)   │    │ (Semantic)│    │  (Azure)   │    │ (Store) │
 └─────────────┘    └───────────┘    └────────────┘    └─────────┘
                                                            │
@@ -148,7 +148,7 @@ pytest tests/test_documents.py -v
 | `AZURE_OPENAI_ENDPOINT` | Azure endpoint URL | Required |
 | `AZURE_OPENAI_EMBEDDING_DEPLOYMENT` | Embedding model deployment | `embedding` |
 | `AZURE_OPENAI_CHAT_DEPLOYMENT` | Chat model deployment | `gpt-4.1` |
-| `TOONDB_PATH` | ToonDB storage path | `./toondb_data` |
+| `TOONDB_PATH` | SochDB storage path | `./sochdb_data` |
 | `CHUNK_SIZE` | Max chunk size in chars | `512` |
 | `TOP_K` | Number of chunks to retrieve | `5` |
 | `MAX_CONTEXT_LENGTH` | Max context for LLM | `4000` |

@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Large Scale Stress Test
+SochDB Agent Memory System - Large Scale Stress Test
 Tests system performance with 1000+ observations
 """
 import time
@@ -83,7 +83,7 @@ def run_stress_test(num_turns: int = 500, verbose: bool = False):
         verbose: Print progress updates
     """
     print("\n" + "="*70)
-    print(f"  🔥 ToonDB Large-Scale Stress Test - {num_turns} Turns")
+    print(f"  🔥 SochDB Large-Scale Stress Test - {num_turns} Turns")
     print("="*70 + "\n")
     
     # Generate messages
@@ -155,13 +155,13 @@ def run_stress_test(num_turns: int = 500, verbose: bool = False):
         agent.close()
         
         print("✅ Stress test complete!")
-        print(f"\n💡 ToonDB handled {actual_observations} observations")
-        print(f"   Database path: {agent.memory_manager.toondb_config.db_path}")
+        print(f"\n💡 SochDB handled {actual_observations} observations")
+        print(f"   Database path: {agent.memory_manager.sochdb_config.db_path}")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ToonDB Large-Scale Stress Test"
+        description="SochDB Large-Scale Stress Test"
     )
     
     parser.add_argument(

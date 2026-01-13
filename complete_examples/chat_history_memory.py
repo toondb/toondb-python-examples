@@ -1,5 +1,5 @@
 """
-ToonDB Chat History Example
+SochDB Chat History Example
 Demonstrates memory storage and retrieval for conversational AI
 
 Equivalent to Zep's chat_history/memory.py
@@ -8,7 +8,7 @@ import uuid
 import json
 import time
 from typing import List, Dict
-from toondb import Database
+from sochdb import Database
 
 
 # Conversation history (same as Zep example)
@@ -152,14 +152,14 @@ SHOE_PURCHASE_HISTORY = [
 ]
 
 
-class ToonDBChatHistory:
+class SochDBChatHistory:
     """
-    Chat history manager using ToonDB
+    Chat history manager using SochDB
     
     Stores conversation messages with full context retrieval
     """
     
-    def __init__(self, db_path="./toondb_chat_data"):
+    def __init__(self, db_path="./sochdb_chat_data"):
         self.db = Database.open(db_path)
     
     def create_user(self, user_id=None, first_name=None, last_name=None, email=None):
@@ -311,10 +311,10 @@ class ToonDBChatHistory:
 
 def main():
     print("="*70)
-    print("  ToonDB Chat History Example - Shoe Purchase")
+    print("  SochDB Chat History Example - Shoe Purchase")
     print("="*70 + "\n")
     
-    chat = ToonDBChatHistory()
+    chat = SochDBChatHistory()
     
     # Create user
     print("Creating user...")

@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - LLM Generation using Azure OpenAI
+SochDB RAG System - LLM Generation using Azure OpenAI
 """
 from typing import List, Dict, Any
 from dataclasses import dataclass
@@ -181,15 +181,15 @@ class MockLLMGenerator:
         answer = "I am a mock AI. "
         
         if "install" in question.lower():
-            answer += "To install ToonDB, run `pip install toondb-client` or `npm install @sushanth/toondb`."
+            answer += "To install SochDB, run `pip install sochdb-client` or `npm install @sochdb/sochdb`."
         elif "features" in question.lower():
-            answer += "ToonDB features include Key-Value Store, Vector Search, and SQL Support."
+            answer += "SochDB features include Key-Value Store, Vector Search, and SQL Support."
         elif "sql" in question.lower():
-            answer += "Yes, ToonDB supports SQL operations like CREATE, INSERT, SELECT."
+            answer += "Yes, SochDB supports SQL operations like CREATE, INSERT, SELECT."
         elif "hnsw" in question.lower():
-            answer += "HNSW is used for fast approximate nearest neighbor search in ToonDB."
-        elif "toondb" in question.lower():
-            answer += "ToonDB is a high-performance embedded database designed for AI applications."
+            answer += "HNSW is used for fast approximate nearest neighbor search in SochDB."
+        elif "sochdb" in question.lower():
+            answer += "SochDB is a high-performance embedded database designed for AI applications."
         else:
             answer += f"I found {len(results)} relevant sources but cannot generate a specific answer in mock mode."
             

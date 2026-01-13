@@ -1,12 +1,12 @@
-# ToonDB Agent Memory System
+# SochDB Agent Memory System
 
-A production-ready AI agent demonstrating ToonDB's memory capabilities with **HNSW-accelerated vector search** for real-time conversations at scale.
+A production-ready AI agent demonstrating SochDB's memory capabilities with **HNSW-accelerated vector search** for real-time conversations at scale.
 
 ## 🎯 What This Is
 
 This is **not a synthetic benchmark** - it's a fully functional agent system that:
 
-- ✅ **Stores observations** in ToonDB using hierarchical paths
+- ✅ **Stores observations** in SochDB using hierarchical paths
 - ✅ **Retrieves memories** with O(log n) HNSW vector search  
 - ✅ **Assembles context** from conversation history
 - ✅ **Measures P99 latency** across all operations
@@ -29,11 +29,11 @@ Initial implementation used **linear O(n) scan**:
 
 ### Solution: HNSW Approximate Nearest Neighbor Search
 
-Now uses **ToonDB's native HnswIndex** for O(log n) graph-based search:
+Now uses **SochDB's native HnswIndex** for O(log n) graph-based search:
 
 ```python
 # In memory_manager.py
-from toondb import Database, HnswIndex
+from sochdb import Database, HnswIndex
 
 self._hnsw_index = HnswIndex(
     dimension=1536,           # Azure OpenAI embedding size
@@ -135,7 +135,7 @@ except Exception as e:
 ### Components
 
 ```
-toondb_agent_memory/
+sochdb_agent_memory/
 ├── memory_manager.py      # Storage + HNSW vector search
 ├── context_builder.py     # Memory retrieval + context assembly
 ├── agent.py               # Main agent loop + Azure OpenAI
@@ -218,7 +218,7 @@ This is the metric that determines user experience:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║           ToonDB Agent Performance Report                    ║
+║           SochDB Agent Performance Report                    ║
 ╚══════════════════════════════════════════════════════════════╝
 
 📊 Cycles Analyzed: 36 turns (72 observations)
@@ -257,19 +257,19 @@ LLM (Azure OpenAI):
 | **Write + Embed** | 814ms | 13% | Includes Azure API call |
 | **LLM Generation** | 5328ms | 87% | **Azure OpenAI dominates** |
 
-**Key Finding**: ToonDB accounts for only **17% of total latency**. The bottleneck is the LLM, not the database.
+**Key Finding**: SochDB accounts for only **17% of total latency**. The bottleneck is the LLM, not the database.
 
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
 
 ```bash
-cd toondb_agent_memory
+cd sochdb_agent_memory
 pip install -r requirements.txt
 ```
 
 Requirements:
-- `toondb-client>=0.3.3`
+- `sochdb-client>=0.3.3`
 - `openai>=1.0.0`
 - `python-dotenv`
 - `numpy`
@@ -290,7 +290,7 @@ AZURE_OPENAI_API_VERSION=2024-02-15-preview
 AZURE_OPENAI_CHAT_DEPLOYMENT=gpt-4
 AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
 
-# ToonDB
+# SochDB
 TOONDB_PATH=./agent_memory_db
 
 # Agent Configuration
@@ -357,7 +357,7 @@ python3 stress_test.py --num-turns 500 --verbose
 ✅ **HNSW Search is Fast**: P99 latency stays under 150ms even with 72 observations  
 ✅ **No Degradation**: Performance consistent across simple and complex scenarios  
 ✅ **High Accuracy**: Agent correctly recalls specific facts from earlier turns  
-✅ **ToonDB Not Bottleneck**: Database operations = 17% of latency, LLM = 87%  
+✅ **SochDB Not Bottleneck**: Database operations = 17% of latency, LLM = 87%  
 ✅ **Scalable**: Stress tested to 200 observations with sub-100ms P99 search  
 
 ### Comparison: Simple vs Complex Scenario
@@ -371,7 +371,7 @@ python3 stress_test.py --num-turns 500 --verbose
 | **P99 HNSW Read** | 143ms | 143ms |
 | **P99 Write** | 814ms | 814ms |
 
-**Result**: ToonDB performance is **consistent** regardless of scenario complexity.
+**Result**: SochDB performance is **consistent** regardless of scenario complexity.
 
 ## 🔧 Configuration Options
 
@@ -414,7 +414,7 @@ For very large deployments:
 2. **Archive old data**: Move observations older than 90 days
 3. **Increase `ef_construction`**: Better recall at cost of slower indexing
 4. **Tune `m` parameter**: Higher m = better search quality, more memory
-5. **Consider sharding**: Split across multiple ToonDB instances
+5. **Consider sharding**: Split across multiple SochDB instances
 
 ### Cost Optimization
 
@@ -510,6 +510,6 @@ This is a **production-ready agent memory system** that:
 ✅ **Reliable**: Graceful degradation, automatic recovery  
 ✅ **Measurable**: Comprehensive P50/P95/P99/P99.9 metrics  
 
-**The HNSW optimization is a game-changer**: It transforms ToonDB from a demo to a production-grade memory store, enabling long-running agent conversations at scale.
+**The HNSW optimization is a game-changer**: It transforms SochDB from a demo to a production-grade memory store, enabling long-running agent conversations at scale.
 
-**Bottom line**: ToonDB is **not the bottleneck**. With HNSW, database operations account for <2% of total latency. The limiting factor is the LLM API (87%), as expected in any real-world agent system.
+**Bottom line**: SochDB is **not the bottleneck**. With HNSW, database operations account for <2% of total latency. The limiting factor is the LLM API (87%), as expected in any real-world agent system.

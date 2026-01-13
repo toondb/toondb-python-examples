@@ -1,5 +1,5 @@
 """
-ToonDB Tool Routing Example
+SochDB Tool Routing Example
 ===========================
 
 Demonstrates the Tool Routing feature for multi-agent systems,
@@ -13,8 +13,8 @@ Features shown:
 - Automatic failover
 """
 
-import toondb
-from toondb.routing import (
+import sochdb
+from sochdb.routing import (
     AgentRegistry, ToolRouter, ToolDispatcher,
     Agent, Tool, ToolCategory, RoutingStrategy,
     RouteContext, RouteResult
@@ -22,12 +22,12 @@ from toondb.routing import (
 
 def main():
     # Open database and create routing infrastructure
-    db = toondb.open("./routing_example_db")
+    db = sochdb.open("./routing_example_db")
     registry = AgentRegistry(db)
     router = ToolRouter(registry, default_strategy=RoutingStrategy.PRIORITY)
     dispatcher = ToolDispatcher(router)
     
-    print("=== ToonDB Tool Routing Example ===\n")
+    print("=== SochDB Tool Routing Example ===\n")
     
     # -------------------------------------------------------
     # 1. Register agents with capabilities

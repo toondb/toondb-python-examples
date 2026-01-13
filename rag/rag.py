@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Main RAG Class
+SochDB RAG System - Main RAG Class
 """
 from typing import List, Optional
 from pathlib import Path
@@ -7,26 +7,26 @@ from pathlib import Path
 from documents import Document, DocumentLoader, TextPreprocessor, Chunk
 from chunking import get_chunker, ChunkingStrategy
 from embeddings import AzureEmbeddings, get_embeddings
-from vector_store import ToonDBVectorStore, SearchResult
+from vector_store import SochDBVectorStore, SearchResult
 from retrieval import BasicRetriever, get_retriever
 from generation import AzureLLMGenerator, RAGResponse
 from config import get_rag_config
 
 
-class ToonDBRAG:
+class SochDBRAG:
     """
-    Complete RAG System using ToonDB
+    Complete RAG System using SochDB
     
     Features:
     - PDF, Markdown, Text document ingestion
     - Semantic chunking with configurable strategies
     - Azure OpenAI embeddings
-    - ToonDB vector storage
+    - SochDB vector storage
     - Multiple retrieval strategies
     - Response generation with citations
     
     Usage:
-        rag = ToonDBRAG()
+        rag = SochDBRAG()
         
         # Ingest documents
         rag.ingest_directory("./documents")
@@ -56,7 +56,7 @@ class ToonDBRAG:
             min_chunk_size=config.chunk_size // 4
         )
         self.embedder = get_embeddings(use_azure=use_azure, use_mock=use_mock)
-        self.vector_store = ToonDBVectorStore(db_path=db_path)
+        self.vector_store = SochDBVectorStore(db_path=db_path)
         self.retriever = get_retriever(
             self.vector_store,
             self.embedder,
@@ -174,9 +174,9 @@ def create_rag(
     db_path: str = None,
     chunking_strategy: str = "semantic",
     retrieval_strategy: str = "basic"
-) -> ToonDBRAG:
-    """Create a ToonDB RAG system"""
-    return ToonDBRAG(
+) -> SochDBRAG:
+    """Create a SochDB RAG system"""
+    return SochDBRAG(
         db_path=db_path,
         chunking_strategy=chunking_strategy,
         retrieval_strategy=retrieval_strategy

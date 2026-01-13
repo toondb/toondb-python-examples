@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 from datetime import datetime, timezone
 
-from .memory import ToonDBMemory
-from .config import get_toondb_config
+from .memory import SochDBMemory
+from .config import get_sochdb_config
 
 def get_transcript_text() -> str:
     path = Path("donotuse/podcast/podcast_transcript.txt")
@@ -64,7 +64,7 @@ def parse_transcript(text: str) -> list[dict]:
         
     return parsed
 
-async def ingest_podcast(memory: ToonDBMemory):
+async def ingest_podcast(memory: SochDBMemory):
     print("📦 Ingesting Podcast Transcript...")
     text = get_transcript_text()
     if not text:
@@ -86,7 +86,7 @@ async def ingest_podcast(memory: ToonDBMemory):
             
     print("✅ Ingestion complete.")
 
-async def demonstrate_search(memory: ToonDBMemory):
+async def demonstrate_search(memory: SochDBMemory):
     print("\n🔍 Demonstrating Search...")
     queries = [
         "What is the podcast about?",
@@ -100,11 +100,11 @@ async def demonstrate_search(memory: ToonDBMemory):
         print(f"--- TOON Context ---\n{result}\n--------------------")
 
 async def main():
-    print("=== ToonDB Podcast Example ===")
-    config = get_toondb_config()
+    print("=== SochDB Podcast Example ===")
+    config = get_sochdb_config()
     print(f"Database: {config.db_path}")
     
-    memory = ToonDBMemory()
+    memory = SochDBMemory()
     
     try:
         await ingest_podcast(memory)

@@ -1,5 +1,5 @@
 """
-ToonDB Policy Hooks Example
+SochDB Policy Hooks Example
 ===========================
 
 Demonstrates the Policy & Safety Hooks feature for agent operations,
@@ -13,8 +13,8 @@ Features shown:
 - Pattern matching for key paths
 """
 
-import toondb
-from toondb.policy import (
+import sochdb
+from sochdb.policy import (
     PolicyEngine, PolicyAction, PolicyContext,
     before_write, after_read, before_delete, after_commit,
     RateLimiter
@@ -22,10 +22,10 @@ from toondb.policy import (
 
 def main():
     # Open database and create policy engine
-    db = toondb.open("./policy_example_db")
+    db = sochdb.open("./policy_example_db")
     engine = PolicyEngine(db)
     
-    print("=== ToonDB Policy Hooks Example ===\n")
+    print("=== SochDB Policy Hooks Example ===\n")
     
     # -------------------------------------------------------
     # 1. Register policies using decorators

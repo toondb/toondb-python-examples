@@ -1,5 +1,5 @@
 """
-ToonDB Context Query Builder
+SochDB Context Query Builder
 Demonstrates priority-based context assembly under token budgets
 """
 import time

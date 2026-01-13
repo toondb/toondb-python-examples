@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from toondb import IpcClient
+from sochdb import IpcClient
 from shared.embeddings import EmbeddingClient
 
 
@@ -74,16 +74,16 @@ def index_runbooks(client: IpcClient):
 
 def main():
     """Run runbook indexer."""
-    socket_path = "./ops_db/toondb.sock"
+    socket_path = "./ops_db/sochdb.sock"
     
     print("="*60)
     print("PROCESS B: RUNBOOK INDEXER")
     print("="*60)
-    print(f"Connecting to ToonDB IPC socket: {socket_path}\n")
+    print(f"Connecting to SochDB IPC socket: {socket_path}\n")
     
     try:
         client = IpcClient.connect(socket_path)
-        print("✅ Connected to shared ToonDB!\n")
+        print("✅ Connected to shared SochDB!\n")
         
         # Index runbooks
         index_runbooks(client)

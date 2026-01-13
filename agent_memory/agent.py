@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Main Agent
+SochDB Agent Memory System - Main Agent
 Real LLM-powered agent with memory capabilities
 """
 import time
@@ -31,7 +31,7 @@ class Agent:
     Memory-augmented conversational agent
     
     Features:
-    - Stores all observations in ToonDB with hierarchical paths
+    - Stores all observations in SochDB with hierarchical paths
     - Retrieves relevant memories using vector search
     - Assembles context with timestamp filtering
     - Generates responses using Azure OpenAI

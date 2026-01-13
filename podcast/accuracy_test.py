@@ -1,10 +1,10 @@
 import asyncio
-from .memory import ToonDBMemory
+from .memory import SochDBMemory
 from .runner import ingest_podcast
 
 async def run_accuracy_test():
-    print("=== ToonDB Podcast Accuracy Test ===")
-    memory = ToonDBMemory()
+    print("=== SochDB Podcast Accuracy Test ===")
+    memory = SochDBMemory()
     
     await ingest_podcast(memory)
     

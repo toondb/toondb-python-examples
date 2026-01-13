@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Configuration
+SochDB Agent Memory System - Configuration
 """
 import os
 from dataclasses import dataclass
@@ -19,8 +19,8 @@ class AzureOpenAIConfig:
 
 
 @dataclass
-class ToonDBConfig:
-    """ToonDB configuration"""
+class SochDBConfig:
+    """SochDB configuration"""
     db_path: str
 
 
@@ -44,9 +44,9 @@ def get_azure_config() -> AzureOpenAIConfig:
     )
 
 
-def get_toondb_config() -> ToonDBConfig:
-    """Load ToonDB configuration from environment"""
-    return ToonDBConfig(
+def get_sochdb_config() -> SochDBConfig:
+    """Load SochDB configuration from environment"""
+    return SochDBConfig(
         db_path=os.getenv("TOONDB_PATH", "./agent_memory_db")
     )
 

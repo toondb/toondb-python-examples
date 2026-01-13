@@ -1,18 +1,18 @@
-# ToonDB Zep Migration Examples
+# SochDB Zep Migration Examples
 
-This directory contains examples of how to migrate from Zep Memory to ToonDB. These scripts replicate the functionality of standard Zep examples using ToonDB's native Key-Value and hierarchy primitives.
+This directory contains examples of how to migrate from Zep Memory to SochDB. These scripts replicate the functionality of standard Zep examples using SochDB's native Key-Value and hierarchy primitives.
 
 ## Examples Provided
 
-| Zep Example | ToonDB Port | Description |
+| Zep Example | SochDB Port | Description |
 |-------------|-------------|-------------|
-| `simple.py` | `toondb_simple.py` | Basic user, thread, and message management. Shows how to structure conversation data hierarchically. |
-| `user_example.py` | `toondb_user_management.py` | Full CRUD operations for Users. Demonstrates metadata storage, updates, and soft deletion. |
-| `advanced.py` | `toondb_entities.py` | Advanced Entity & Relationship storage (Knowledge Graph). Shows how to model graph data using KV pairs and manual indexes. |
+| `simple.py` | `sochdb_simple.py` | Basic user, thread, and message management. Shows how to structure conversation data hierarchically. |
+| `user_example.py` | `sochdb_user_management.py` | Full CRUD operations for Users. Demonstrates metadata storage, updates, and soft deletion. |
+| `advanced.py` | `sochdb_entities.py` | Advanced Entity & Relationship storage (Knowledge Graph). Shows how to model graph data using KV pairs and manual indexes. |
 
 ## Key Concepts Mapped
 
-| Concept | Zep Implementation | ToonDB Implementation |
+| Concept | Zep Implementation | SochDB Implementation |
 |---------|--------------------|-----------------------|
 | **User** | `client.user.add(...)` | `db.put(f"users.{id}.name", ...)` |
 | **Thread** | `client.thread.create(...)` | `db.put(f"threads.{id}.created_at", ...)` |
@@ -22,24 +22,24 @@ This directory contains examples of how to migrate from Zep Memory to ToonDB. Th
 
 ## Usage
 
-Run any example to see ToonDB in action:
+Run any example to see SochDB in action:
 
 ```bash
 # Basic conversation storge
-python3 toondb_simple.py
+python3 sochdb_simple.py
 
 # User management (CRUD)
-python3 toondb_user_management.py
+python3 sochdb_user_management.py
 
 # Advanced Knowledge Graph (Entities & Relationships)
-python3 toondb_entities.py
+python3 sochdb_entities.py
 ```
 
 ## Data Location
 
 Each example creates a local database directory:
-- `./toondb_simple_data`
-- `./toondb_user_data`
-- `./toondb_entity_data`
+- `./sochdb_simple_data`
+- `./sochdb_user_data`
+- `./sochdb_entity_data`
 
 To reset, simply delete these directories.

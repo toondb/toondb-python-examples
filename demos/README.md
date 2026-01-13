@@ -1,11 +1,11 @@
-# ToonDB Demo Use Cases
+# SochDB Demo Use Cases
 
-Three demo-grade, agentic use cases showcasing ToonDB's capabilities:
+Three demo-grade, agentic use cases showcasing SochDB's capabilities:
 
 1. **"Real database stuff"**: SQL, KV, transactions (ACID/MVCC/WAL/SSI)
 2. **"Agent memory + retrieval"**: Vectors, ContextQuery, TOON, token budgeting
 
-Each demo maps directly to ToonDB features: TOON encoding, ContextQuery, HNSW vectors, ACID transactions, Embedded + IPC modes, hybrid search, and multi-vector documents.
+Each demo maps directly to SochDB features: TOON encoding, ContextQuery, HNSW vectors, ACID transactions, Embedded + IPC modes, hybrid search, and multi-vector documents.
 
 ---
 
@@ -35,7 +35,7 @@ An AI support agent that handles customer order inquiries using SQL queries, KV 
 
 **Shared Memory + Retrieval Across Processes**
 
-Three concurrent processes share a single ToonDB instance via IPC (Unix socket) to detect, analyze, and mitigate production incidents using hybrid retrieval.
+Three concurrent processes share a single SochDB instance via IPC (Unix socket) to detect, analyze, and mitigate production incidents using hybrid retrieval.
 
 **Showcases**:
 - ✅ IPC mode: multiple processes, one shared DB
@@ -45,7 +45,7 @@ Three concurrent processes share a single ToonDB instance via IPC (Unix socket) 
 - ✅ Concurrent writes without conflicts
 - ✅ Token-budgeted runbook retrieval
 
-**Key Highlight**: Three agents collaborate through shared ToonDB without separate message queues or databases.
+**Key Highlight**: Three agents collaborate through shared SochDB without separate message queues or databases.
 
 [→ See Demo 2 README](./2_incident_response/README.md)
 
@@ -92,8 +92,8 @@ Upload a CSV, run SQL analytics, encode results in TOON, search notes semantical
 ### Prerequisites
 
 ```bash
-# Install ToonDB
-pip install toondb
+# Install SochDB
+pip install sochdb
 
 # Install demo dependencies
 pip install openai tiktoken
@@ -144,13 +144,13 @@ User Query
 [ACID Transaction] → Atomic writes
 ```
 
-**Everything in one ToonDB instance. No glue code.**
+**Everything in one SochDB instance. No glue code.**
 
 ### Pattern 2: Multi-Process IPC (Demo 2)
 
 ```
 Process A (Collector) ────┐
-                          ├──→ ToonDB Server (IPC)
+                          ├──→ SochDB Server (IPC)
 Process B (Indexer)   ────┤         ↓
                           │    Shared State
 Process C (Commander) ────┘    - KV paths
@@ -173,13 +173,13 @@ Traditional stack:
 - Custom orchestration layer
 - ETL pipelines between systems
 
-ToonDB stack:
-- **ToonDB** (SQL + KV + vectors)
+SochDB stack:
+- **SochDB** (SQL + KV + vectors)
 - Done.
 
 ### 2. Token Efficiency
 
-JSON example (from ToonDB README):
+JSON example (from SochDB README):
 ```json
 [{"id": 1, "name": "Alice", "email": "alice@example.com"}]
 ```
@@ -241,7 +241,7 @@ demos/
 All demos share the same dependencies:
 
 ```
-toondb>=0.3.3
+sochdb>=0.3.3
 openai>=1.0.0
 tiktoken>=0.5.0
 ```
@@ -252,16 +252,16 @@ Install globally or use per-demo `requirements.txt`.
 
 ## Links
 
-- [ToonDB Main Repo](https://github.com/toondb/toondb)
-- [Python SDK](https://github.com/toondb/toondb-python-sdk)
-- [Node.js SDK](https://github.com/toondb/toondb-js)
-- [Go SDK](https://github.com/toondb/toondb-go)
+- [SochDB Main Repo](https://github.com/sochdb/sochdb)
+- [Python SDK](https://github.com/sochdb/sochdb-python-sdk)
+- [Node.js SDK](https://github.com/sochdb/sochdb-js)
+- [Go SDK](https://github.com/sochdb/sochdb-go)
 
 ---
 
 ## Credits
 
-These demos showcase ToonDB's core capabilities:
+These demos showcase SochDB's core capabilities:
 - **TOON format** for token-efficient tabular data
 - **ContextQuery** for retrieval with budgets
 - **HNSW vectors** for fast semantic search
@@ -269,4 +269,4 @@ These demos showcase ToonDB's core capabilities:
 - **IPC mode** for multi-process agents
 - **Hybrid search** with RRF
 
-All features are production-ready and available in ToonDB 0.3+.
+All features are production-ready and available in SochDB 0.3+.

@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Memory Manager
+SochDB Agent Memory System - Memory Manager
 Handles hierarchical storage of observations with timestamps
 """
 import time
@@ -9,10 +9,10 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 import numpy as np
 
-from toondb import Database
+from sochdb import Database
 from openai import AzureOpenAI
 
-from config import get_azure_config, get_toondb_config
+from config import get_azure_config, get_sochdb_config
 
 
 @dataclass
@@ -53,14 +53,14 @@ class Memory:
 
 class MemoryManager:
     """
-    Manages hierarchical memory storage in ToonDB
+    Manages hierarchical memory storage in SochDB
     
     Path structure: session.{session_id}.observations.turn_{turn_number}
     Each observation stored with metadata: timestamp, role, token_count
     """
     
     def __init__(self):
-        self.toondb_config = get_toondb_config()
+        self.sochdb_config = get_sochdb_config()
         self.azure_config = get_azure_config()
         self._db = None
         self._embedder = None
@@ -69,7 +69,7 @@ class MemoryManager:
     def db(self) -> Database:
         """Lazy database connection"""
         if self._db is None:
-            self._db = Database.open(self.toondb_config.db_path)
+            self._db = Database.open(self.sochdb_config.db_path)
         return self._db
     
     @property

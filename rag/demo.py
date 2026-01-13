@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ToonDB RAG System - Demo Script
+SochDB RAG System - Demo Script
 
 This script demonstrates the complete RAG pipeline with a sample PDF.
 """
@@ -12,31 +12,31 @@ sys.path.insert(0, str(Path(__file__).parent))
 from dotenv import load_dotenv
 load_dotenv()
 
-from rag import ToonDBRAG
+from rag import SochDBRAG
 
 
 def create_sample_document():
     """Create a sample document for demo"""
     sample_content = """
-# ToonDB Documentation
+# SochDB Documentation
 
 ## Overview
 
-ToonDB is a high-performance embedded database designed for AI applications.
+SochDB is a high-performance embedded database designed for AI applications.
 It provides key-value storage, vector search, and SQL capabilities.
 
 ## Features
 
 ### Key-Value Store
-ToonDB offers simple get/put/delete operations for key-value data.
+SochDB offers simple get/put/delete operations for key-value data.
 Keys can be hierarchical paths like "users/alice/email".
 
 ### Vector Search
-ToonDB includes HNSW (Hierarchical Navigable Small World) index for 
+SochDB includes HNSW (Hierarchical Navigable Small World) index for 
 fast approximate nearest neighbor search. This is ideal for RAG applications.
 
 ### SQL Support
-ToonDB supports basic SQL operations including:
+SochDB supports basic SQL operations including:
 - CREATE TABLE
 - INSERT INTO
 - SELECT with WHERE, ORDER BY, LIMIT
@@ -49,18 +49,18 @@ All operations support ACID transactions with snapshot isolation.
 
 Python:
 ```
-pip install toondb-client
+pip install sochdb-client
 ```
 
 Node.js:
 ```
-npm install @sushanth/toondb
+npm install @sochdb/sochdb
 ```
 
 ## Quick Start
 
 ```python
-from toondb import Database
+from sochdb import Database
 
 with Database.open("./my_db") as db:
     db.put(b"key", b"value")
@@ -70,7 +70,7 @@ with Database.open("./my_db") as db:
 
 ## Performance
 
-ToonDB is optimized for:
+SochDB is optimized for:
 - Low latency reads (sub-millisecond)
 - High throughput writes
 - Efficient vector search with HNSW
@@ -84,7 +84,7 @@ ToonDB is optimized for:
 5. Embedded databases for desktop apps
 """
     
-    sample_path = Path(__file__).parent / "documents" / "sample_toondb_docs.md"
+    sample_path = Path(__file__).parent / "documents" / "sample_sochdb_docs.md"
     sample_path.parent.mkdir(exist_ok=True)
     
     with open(sample_path, 'w') as f:
@@ -97,7 +97,7 @@ ToonDB is optimized for:
 def run_demo():
     """Run the RAG demo"""
     print("=" * 60)
-    print("🚀 ToonDB RAG System Demo")
+    print("🚀 SochDB RAG System Demo")
     print("=" * 60)
     
     # Create sample document
@@ -108,7 +108,7 @@ def run_demo():
     # Initialize RAG
     print("\n📦 Initializing RAG system...")
     # Initialize real RAG system (will raise error if connection fails)
-    rag = ToonDBRAG(db_path="./demo_toondb_data", use_azure=True, use_mock=False)
+    rag = SochDBRAG(db_path="./demo_sochdb_data", use_azure=True, use_mock=False)
     
     # Test connection
     print("   🔄 Verify connection to Azure OpenAI...")
@@ -131,11 +131,11 @@ def run_demo():
         
         # Test queries
         test_questions = [
-            "What is ToonDB?",
-            "How do I install ToonDB in Python?",
-            "What are the main features of ToonDB?",
-            "Does ToonDB support SQL?",
-            "What is HNSW in ToonDB?",
+            "What is SochDB?",
+            "How do I install SochDB in Python?",
+            "What are the main features of SochDB?",
+            "Does SochDB support SQL?",
+            "What is HNSW in SochDB?",
         ]
         
         print("\n" + "=" * 60)

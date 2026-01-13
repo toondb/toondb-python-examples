@@ -1,10 +1,10 @@
 # Multi-Agent Incident Response Demo
 
-Demo-grade incident response system showcasing ToonDB's IPC mode, namespace isolation, hybrid retrieval, and ACID state transitions.
+Demo-grade incident response system showcasing SochDB's IPC mode, namespace isolation, hybrid retrieval, and ACID state transitions.
 
 ## What This Demo Shows
 
-1. **IPC Mode**: Multiple processes sharing one ToonDB instance via Unix socket
+1. **IPC Mode**: Multiple processes sharing one SochDB instance via Unix socket
 2. **Namespace Isolation**: Separate namespaces for `incident_ops` data
 3. **Hybrid Retrieval**: Vector + keyword search with Reciprocal Rank Fusion (RRF)
 4. **ACID State Transitions**: Incident states (OPEN → MITIGATING → RESOLVED)
@@ -15,7 +15,7 @@ Demo-grade incident response system showcasing ToonDB's IPC mode, namespace isol
 
 ```
 Process A (Collector)  ────┐
-                           ├──→ ToonDB Server (IPC)
+                           ├──→ SochDB Server (IPC)
 Process B (Indexer)    ────┤         ↓
                            │    Shared State:
 Process C (Commander)  ────┘    - Metrics (KV)
@@ -28,7 +28,7 @@ Process C (Commander)  ────┘    - Metrics (KV)
 ### 1. Install Dependencies
 
 ```bash
-pip install toondb openai tiktoken
+pip install sochdb openai tiktoken
 ```
 
 ### 2. Set OpenAI API Key
@@ -37,14 +37,14 @@ pip install toondb openai tiktoken
 export OPENAI_API_KEY="your-api-key-here"
 ```
 
-### 3. Start ToonDB Server
+### 3. Start SochDB Server
 
 ```bash
 cd demos/2_incident_response
 ./start_server.sh
 ```
 
-This starts ToonDB in IPC mode with a Unix socket at `./ops_db/toondb.sock`.
+This starts SochDB in IPC mode with a Unix socket at `./ops_db/sochdb.sock`.
 
 ## Usage
 
@@ -144,12 +144,12 @@ Next Steps:
 
 ### IPC: Shared DB Across Processes
 
-All three processes connect to the same ToonDB instance:
+All three processes connect to the same SochDB instance:
 
 ```python
-from toondb import IpcClient
+from sochdb import IpcClient
 
-client = IpcClient.connect("./ops_db/toondb.sock")
+client = IpcClient.connect("./ops_db/sochdb.sock")
 
 # Process A writes metrics
 client.put(b"metrics/latest/latency_p99", b"1450")
@@ -189,7 +189,7 @@ All operations are consistent across processes.
 
 ## Files
 
-- `start_server.sh`: Start ToonDB in IPC mode
+- `start_server.sh`: Start SochDB in IPC mode
 - `process_a_collector.py`: Metrics collector (writes to KV)
 - `process_b_indexer.py`: Runbook indexer (writes to vectors)
 - `process_c_commander.py`: Incident commander (reads KV + vectors, writes state)
@@ -205,10 +205,10 @@ All operations are consistent across processes.
 
 ```bash
 # Check if server is already running
-toondb-server status --db ./ops_db
+sochdb-server status --db ./ops_db
 
 # Stop existing server
-toondb-server stop --db ./ops_db
+sochdb-server stop --db ./ops_db
 
 # Start fresh
 ./start_server.sh
@@ -219,7 +219,7 @@ toondb-server stop --db ./ops_db
 Ensure server is running first:
 ```bash
 ./start_server.sh
-# Wait for "✅ ToonDB server is running!" message
+# Wait for "✅ SochDB server is running!" message
 ```
 
 ### No Incident Triggered

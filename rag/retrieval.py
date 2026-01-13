@@ -1,18 +1,18 @@
 """
-ToonDB RAG System - Retrieval Strategies
+SochDB RAG System - Retrieval Strategies
 """
 from typing import List
 from dataclasses import dataclass
 import numpy as np
 
-from vector_store import ToonDBVectorStore, SearchResult
+from vector_store import SochDBVectorStore, SearchResult
 from embeddings import AzureEmbeddings
 
 
 class BasicRetriever:
     """Simple top-k retrieval"""
     
-    def __init__(self, vector_store: ToonDBVectorStore, embedder: AzureEmbeddings):
+    def __init__(self, vector_store: SochDBVectorStore, embedder: AzureEmbeddings):
         self.vector_store = vector_store
         self.embedder = embedder
     
@@ -27,7 +27,7 @@ class ThresholdRetriever:
     
     def __init__(
         self, 
-        vector_store: ToonDBVectorStore, 
+        vector_store: SochDBVectorStore, 
         embedder: AzureEmbeddings,
         min_score: float = 0.5
     ):
@@ -50,7 +50,7 @@ class MMRRetriever:
     
     def __init__(
         self, 
-        vector_store: ToonDBVectorStore, 
+        vector_store: SochDBVectorStore, 
         embedder: AzureEmbeddings,
         lambda_mult: float = 0.5
     ):
@@ -120,7 +120,7 @@ class MMRRetriever:
 
 
 def get_retriever(
-    vector_store: ToonDBVectorStore,
+    vector_store: SochDBVectorStore,
     embedder: AzureEmbeddings,
     strategy: str = "basic",
     **kwargs

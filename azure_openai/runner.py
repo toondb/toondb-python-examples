@@ -3,10 +3,10 @@ import json
 import sys
 from datetime import datetime, timezone
 
-from .memory import ToonDBMemory
-from .config import get_toondb_config
+from .memory import SochDBMemory
+from .config import get_sochdb_config
 
-async def ingest_politics_data(memory: ToonDBMemory):
+async def ingest_politics_data(memory: SochDBMemory):
     print("📦 Ingesting California Politics data...")
     
     episodes = [
@@ -43,7 +43,7 @@ async def ingest_politics_data(memory: ToonDBMemory):
             
     print("✅ Ingestion complete.")
 
-async def demonstrate_search(memory: ToonDBMemory):
+async def demonstrate_search(memory: SochDBMemory):
     print("\n🔍 Demonstrating Search...")
     query = 'Who was the California Attorney General?'
     print(f"Query: '{query}'")
@@ -52,11 +52,11 @@ async def demonstrate_search(memory: ToonDBMemory):
     print(f"--- TOON Context ---\n{result}\n--------------------")
 
 async def main():
-    print("=== ToonDB Azure OpenAI Example ===")
-    config = get_toondb_config()
+    print("=== SochDB Azure OpenAI Example ===")
+    config = get_sochdb_config()
     print(f"Database: {config.db_path}")
     
-    memory = ToonDBMemory()
+    memory = SochDBMemory()
     
     try:
         await ingest_politics_data(memory)

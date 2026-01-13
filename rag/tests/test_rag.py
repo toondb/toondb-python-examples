@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - RAG Integration Tests
+SochDB RAG System - RAG Integration Tests
 """
 import sys
 from pathlib import Path
@@ -9,7 +9,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from documents import Document, Chunk
-from vector_store import ToonDBVectorStore, SearchResult
+from vector_store import SochDBVectorStore, SearchResult
 from chunking import SemanticChunker
 
 
@@ -17,13 +17,13 @@ from chunking import SemanticChunker
 # Vector Store Tests
 # ============================================================================
 
-class TestToonDBVectorStore:
-    """Tests for ToonDB vector store"""
+class TestSochDBVectorStore:
+    """Tests for SochDB vector store"""
     
     @pytest.fixture
     def vector_store(self, tmp_path):
         """Create a temporary vector store"""
-        store = ToonDBVectorStore(db_path=str(tmp_path / "test_db"))
+        store = SochDBVectorStore(db_path=str(tmp_path / "test_db"))
         yield store
         store.close()
     

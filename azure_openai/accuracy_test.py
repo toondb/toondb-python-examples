@@ -1,10 +1,10 @@
 import asyncio
-from .memory import ToonDBMemory
+from .memory import SochDBMemory
 from .runner import ingest_politics_data
 
 async def run_accuracy_test():
-    print("=== ToonDB Azure OpenAI Accuracy Test ===")
-    memory = ToonDBMemory()
+    print("=== SochDB Azure OpenAI Accuracy Test ===")
+    memory = SochDBMemory()
     
     # Ingest data
     await ingest_politics_data(memory)

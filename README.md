@@ -1,11 +1,11 @@
-# ToonDB Python Examples
+# SochDB Python Examples
 
-Official Python examples for ToonDB - the high-performance embedded database for AI applications. This repository showcases integration patterns with popular agent frameworks and demonstrates ToonDB's unique features.
+Official Python examples for SochDB - the high-performance embedded database for AI applications. This repository showcases integration patterns with popular agent frameworks and demonstrates SochDB's unique features.
 
 ## 📂 Repository Structure
 
 ```
-toondb-python-examples/
+sochdb-python-examples/
 ├── agent_memory/          # Production agent memory system with HNSW index
 ├── azure_openai/          # Azure OpenAI integration examples
 ├── complete_examples/     # Framework integrations (LangGraph, AutoGen, CrewAI)
@@ -23,12 +23,12 @@ toondb-python-examples/
 ### Prerequisites
 
 - Python 3.10+ installed
-- ToonDB Python SDK: `toondb-client>=0.3.3`
+- SochDB Python SDK: `sochdb-client>=0.3.3`
 
 ### Installation
 
 ```bash
-pip install toondb-client>=0.3.3
+pip install sochdb-client>=0.3.3
 ```
 
 ## 📚 Examples by Category
@@ -61,7 +61,7 @@ python main.py
 **Best for**: Building stateful LangGraph agents with persistent memory.
 
 **Features**:
-- Custom ToonDB checkpointer for graph state
+- Custom SochDB checkpointer for graph state
 - Long-term memory store for user interactions
 - Time-weighted context retrieval
 - Seamless LangGraph integration
@@ -69,7 +69,7 @@ python main.py
 ```bash
 cd langgraph
 pip install -r requirements.txt  
-python agent_with_toondb.py
+python agent_with_sochdb.py
 ```
 
 ---
@@ -87,7 +87,7 @@ python agent_with_toondb.py
 **Demonstrated Scenarios**:
 - Ample budget (4000 tokens)
 - Tight budget (500 tokens)
-- ToonDB integration with TOON format
+- SochDB integration with TOON format
 
 ```bash
 cd context_builder
@@ -106,7 +106,7 @@ python runner.py
 **Features**:
 - Document ingestion and chunking
 - Azure OpenAI embeddings
-- Vector search with ToonDB
+- Vector search with SochDB
 - Generation with context
 
 ```bash
@@ -195,11 +195,11 @@ python runner.py
 
 #### 9. Complete Examples (`complete_examples/`)
 
-**Multi-framework integrations** showing ToonDB with various agent frameworks.
+**Multi-framework integrations** showing SochDB with various agent frameworks.
 
 **Included**:
-- LangGraph agent with ToonDB memory
-- AutoGen multi-agent with ToonDB
+- LangGraph agent with SochDB memory
+- AutoGen multi-agent with SochDB
 - Chat history management
 - Graph-based examples
 
@@ -207,7 +207,7 @@ python runner.py
 cd complete_examples
 pip install -r requirements.txt
 # Run individual examples
-python langgraph_agent_with_toondb.py
+python langgraph_agent_with_sochdb.py
 ```
 
 ---
@@ -225,12 +225,12 @@ python langgraph_agent_with_toondb.py
 ```bash
 cd zep
 pip install -r requirements.txt
-python toondb_simple.py
+python sochdb_simple.py
 ```
 
-# ToonDB Demo Notebooks
+# SochDB Demo Notebooks
 
-Interactive Jupyter notebooks for learning ToonDB features through hands-on examples.
+Interactive Jupyter notebooks for learning SochDB features through hands-on examples.
 
 ## 📚 Notebooks
 
@@ -276,7 +276,7 @@ Learn how to build data analysis agents with:
 
 ---
 
-## 🔑 Key ToonDB Features Demonstrated
+## 🔑 Key SochDB Features Demonstrated
 
 - **TOON Format**: Token-efficient output format (`Database.to_toon()`)
 - **Vector Search**: Built-in HNSW index for semantic similarity
@@ -287,9 +287,9 @@ Learn how to build data analysis agents with:
 
 ## 📖 Documentation
 
-- [ToonDB Documentation](https://toondb.io)
-- [Python SDK (PyPI)](https://pypi.org/project/toondb-client/)
-- [API Reference](https://toondb.io/docs/python-sdk)
+- [SochDB Documentation](https://sochdb.io)
+- [Python SDK (PyPI)](https://pypi.org/project/sochdb-client/)
+- [API Reference](https://sochdb.io/docs/python-sdk)
 
 ## ✅ Accuracy Testing
 
@@ -316,10 +316,10 @@ Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Related Repositories
 
-- [toondb/toondb](https://github.com/toondb/toondb) - Main ToonDB repository
-- [toondb/toondb-go](https://github.com/toondb/toondb-go) - Go SDK
-- [toondb/toondb-golang-examples](https://github.com/toondb/toondb-golang-examples) - Go examples
-- [toondb/toondb-examples](https://github.com/toondb/toondb-examples) - Multi-language examples
+- [sochdb/sochdb](https://github.com/sochdb/sochdb) - Main SochDB repository
+- [sochdb/sochdb-go](https://github.com/sochdb/sochdb-go) - Go SDK
+- [sochdb/sochdb-golang-examples](https://github.com/sochdb/sochdb-golang-examples) - Go examples
+- [sochdb/sochdb-examples](https://github.com/sochdb/sochdb-examples) - Multi-language examples
 
 ## Acknowledgements
 

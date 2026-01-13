@@ -1,6 +1,6 @@
 # Context Query Builder Example
 
-This example demonstrates ToonDB's **Context Query Builder** - a powerful feature for assembling LLM context under strict token budgets.
+This example demonstrates SochDB's **Context Query Builder** - a powerful feature for assembling LLM context under strict token budgets.
 
 ## What is Context Query Builder?
 
@@ -16,7 +16,7 @@ All of this is done under a **token budget** with **priority-based truncation**,
 
 - **Token Budget Management**: Automatically fits content within your specified token limit
 - **Priority-Based Trucation**: Keeps the most important content (system + current query), then adds history and retrieval as space allows
-- **TOON Format Integration**: Uses ToonDB's `to_toon()` for compact retrieval formatting
+- **TOON Format Integration**: Uses SochDB's `to_toon()` for compact retrieval formatting
 - **Flexible Truncation**: Intelligently truncates conversation history from the middle, keeping recent and oldest context
 
 ## Use Cases

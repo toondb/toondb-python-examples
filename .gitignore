@@ -205,3 +205,32 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# SochDB Examples - Database directories and generated files
+**/sochdb_data/
+**/sochdb_data_*/
+**/*_sochdb_data/
+**/toondb_data/
+**/demo_*_db/
+**/*_db/
+*.db
+*.sqlite
+*.sqlite3
+
+# SochDB Examples - Generated/temporary files
+*_metrics.json
+*_support_metrics.json
+harness_*.json
+sample_*_docs.md
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

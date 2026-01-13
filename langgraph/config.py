@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 @dataclass
-class ToonDBConfig:
-    db_path: str = os.getenv("TOONDB_PATH", "./toondb_langgraph_data")
+class SochDBConfig:
+    db_path: str = os.getenv("TOONDB_PATH", "./sochdb_langgraph_data")
     
 @dataclass
 class AzureConfig:
@@ -16,8 +16,8 @@ class AzureConfig:
     deployment: str = os.getenv("AZURE_OPENAI_DEPLOYMENT")
     embedding_deployment: str = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-ada-002")
 
-def get_toondb_config() -> ToonDBConfig:
-    return ToonDBConfig()
+def get_sochdb_config() -> SochDBConfig:
+    return SochDBConfig()
 
 def get_azure_config() -> AzureConfig:
     return AzureConfig()

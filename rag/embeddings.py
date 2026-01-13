@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Embeddings using Azure OpenAI
+SochDB RAG System - Embeddings using Azure OpenAI
 """
 from typing import List
 import numpy as np

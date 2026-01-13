@@ -5,13 +5,13 @@ from datetime import datetime, timezone
 import random
 from typing import List, Tuple
 
-from .memory import ToonDBMemory
-from .config import get_toondb_config
+from .memory import SochDBMemory
+from .config import get_sochdb_config
 from .runner import ingest_products_data
 
 async def run_accuracy_test():
-    print("=== ToonDB eCommerce Accuracy Test ===")
-    memory = ToonDBMemory()
+    print("=== SochDB eCommerce Accuracy Test ===")
+    memory = SochDBMemory()
     
     # Ensure data is loaded (simulated check)
     # in a real persistent DB we might not need to re-ingest every time if persisted

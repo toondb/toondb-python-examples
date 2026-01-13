@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Configuration
+SochDB RAG System - Configuration
 """
 import os
 from dataclasses import dataclass
@@ -16,7 +16,7 @@ class AzureOpenAIConfig:
     embedding_deployment: str
 
 @dataclass
-class ToonDBConfig:
+class SochDBConfig:
     db_path: str
     vector_path: str
 
@@ -36,10 +36,10 @@ def get_azure_config() -> AzureOpenAIConfig:
         embedding_deployment=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "embedding")
     )
 
-def get_toondb_config() -> ToonDBConfig:
-    return ToonDBConfig(
-        db_path=os.getenv("TOONDB_PATH", "./toondb_data"),
-        vector_path=os.getenv("TOONDB_VECTOR_PATH", "./toondb_vectors")
+def get_sochdb_config() -> SochDBConfig:
+    return SochDBConfig(
+        db_path=os.getenv("TOONDB_PATH", "./sochdb_data"),
+        vector_path=os.getenv("TOONDB_VECTOR_PATH", "./sochdb_vectors")
     )
 
 def get_rag_config() -> RAGConfig:

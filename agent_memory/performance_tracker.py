@@ -1,5 +1,5 @@
 """
-ToonDB Agent Memory System - Performance Tracker
+SochDB Agent Memory System - Performance Tracker
 Tracks latency metrics across agent operations
 """
 import time
@@ -54,7 +54,7 @@ class PerformanceReport:
         """Generate human-readable summary"""
         return f"""
 ╔══════════════════════════════════════════════════════════════╗
-║           ToonDB Agent Performance Report                    ║
+║           SochDB Agent Performance Report                    ║
 ╚══════════════════════════════════════════════════════════════╝
 
 📊 Cycles Analyzed: {self.num_cycles}

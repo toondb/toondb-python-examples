@@ -1,5 +1,5 @@
 """
-ToonDB Advanced Travel Example
+SochDB Advanced Travel Example
 Complete sophisticated travel planning with entities and relationships
 
 Equivalent to Zep's advanced.py - demonstrates complex domain modeling
@@ -9,7 +9,7 @@ import json
 import time
 from typing import Dict, List, Optional
 from dataclasses import dataclass, asdict
-from toondb import Database
+from sochdb import Database
 
 
 # Entity Type Definitions
@@ -110,12 +110,12 @@ class Books:
 
 class TravelPlanningSystem:
     """
-    Complete travel planning system using ToonDB
+    Complete travel planning system using SochDB
     
     Stores entities, relationships, and conversation threads
     """
     
-    def __init__(self, db_path="./toondb_travel_data"):
+    def __init__(self, db_path="./sochdb_travel_data"):
         self.db = Database.open(db_path)
     
     # User Management
@@ -456,7 +456,7 @@ def run_full_travel_scenario():
 def main():
     """Run all tests"""
     print("="*70)
-    print("  ToonDB Advanced Travel Planning System")
+    print("  SochDB Advanced Travel Planning System")
     print("  Comprehensive Testing & Validation")
     print("="*70)
     

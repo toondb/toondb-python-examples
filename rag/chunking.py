@@ -1,5 +1,5 @@
 """
-ToonDB RAG System - Text Chunking Strategies
+SochDB RAG System - Text Chunking Strategies
 """
 from typing import List
 from abc import ABC, abstractmethod

@@ -1,6 +1,6 @@
-# ToonDB Complete Examples
+# SochDB Complete Examples
 
-Production-ready examples showing ToonDB integration with AI frameworks and applications.
+Production-ready examples showing SochDB integration with AI frameworks and applications.
 
 ## ✅ Test Results (2026-01-03)
 
@@ -11,10 +11,10 @@ All examples tested with real execution:
 | `chat_history_memory.py` | ✅ **PASSED** | No | 17-turn conversation, all data stored correctly |
 | `graph_example.py` | ✅ **PASSED** | No | Episodes, nodes, edges all working |
 | `advanced_travel.py` | ✅ **PASSED** | No | All 3 test suites passing, relationships indexed |
-| `langgraph_agent_with_toondb.py` | ✅ **WORKING** | Azure OpenAI | Connects, stores messages, basic conversation works |
-| `autogen_agent_with_toondb.py` | ⏳ **TESTING** | Azure OpenAI | Testing in progress |
+| `langgraph_agent_with_sochdb.py` | ✅ **WORKING** | Azure OpenAI | Connects, stores messages, basic conversation works |
+| `autogen_agent_with_sochdb.py` | ⏳ **TESTING** | Azure OpenAI | Testing in progress |
 
-**Key Finding**: ToonDB integration works perfectly - 100% data persistence, sub-ms performance, zero data loss.
+**Key Finding**: SochDB integration works perfectly - 100% data persistence, sub-ms performance, zero data loss.
 
 ---
 
@@ -45,7 +45,7 @@ All examples tested with real execution:
 python3 chat_history_memory.py
 ```
 
-**Database created**: `./toondb_chat_data/` (20KB, 85 keys)
+**Database created**: `./sochdb_chat_data/` (20KB, 85 keys)
 
 ---
 
@@ -74,7 +74,7 @@ python3 chat_history_memory.py
 python3 graph_example.py
 ```
 
-**Database created**: `./toondb_graph_data/` (16KB, ~40 keys)
+**Database created**: `./sochdb_graph_data/` (16KB, ~40 keys)
 
 ---
 
@@ -112,11 +112,11 @@ TEST 3: Full Scenario
 python3 advanced_travel.py
 ```
 
-**Database created**: `./toondb_travel_data/` (20KB, entities + relationships + indexes)
+**Database created**: `./sochdb_travel_data/` (20KB, entities + relationships + indexes)
 
 ---
 
-### 4. LangGraph Agent with ToonDB (`langgraph_agent_with_toondb.py`)
+### 4. LangGraph Agent with SochDB (`langgraph_agent_with_sochdb.py`)
 
 **Real StateGraph integration with persistent conversation memory.**
 
@@ -127,26 +127,26 @@ python3 advanced_travel.py
 ✓ Demo conversation (2 turns):
   - "Planning trip to Japan" → Full response about Japan
   - "What about Tokyo?" → Detailed Tokyo guide
-✓ All messages saved to ToonDB
-✓ ToonDBMemoryStore working perfectly
+✓ All messages saved to SochDB
+✓ SochDBMemoryStore working perfectly
 ```
 
 **What it demonstrates**:
 - Real `StateGraph` with nodes and edges
 - `AzureChatOpenAI` integration
-- Message persistence in ToonDB
+- Message persistence in SochDB
 - Session-based conversation isolation
 - State management with checkpointer
 
 **Usage**:
 ```bash
 # Requires .env with Azure OpenAI credentials
-python3 langgraph_agent_with_toondb.py --demo
+python3 langgraph_agent_with_sochdb.py --demo
 ```
 
 **Code structure**:
 ```python
-# ToonDB storage
+# SochDB storage
 memory_store.save_message(session_id, message)
 
 # StateGraph definition
@@ -164,27 +164,27 @@ llm = AzureChatOpenAI(
 
 ---
 
-### 5. AutoGen Multi-Agent with ToonDB (`autogen_agent_with_toondb.py`)
+### 5. AutoGen Multi-Agent with SochDB (`autogen_agent_with_sochdb.py`)
 
 **Multi-agent collaboration with automatic memory capture.**
 
 **Features**:
 - `AssistantAgent` and `UserProxyAgent` setup
 - Automatic message interception
-- All agent messages saved to ToonDB
+- All agent messages saved to SochDB
 - Memory search functions
 - Multi-agent collaboration demo
 
 **Usage**:
 ```bash
 # Demo conversation
-python3 autogen_agent_with_toondb.py --demo
+python3 autogen_agent_with_sochdb.py --demo
 
 # Interactive mode  
-python3 autogen_agent_with_toondb.py --interactive
+python3 autogen_agent_with_sochdb.py --interactive
 
 # Multi-agent collaboration
-python3 autogen_agent_with_toondb.py --multi-agent
+python3 autogen_agent_with_sochdb.py --multi-agent
 ```
 
 ---
@@ -194,7 +194,7 @@ python3 autogen_agent_with_toondb.py --multi-agent
 ### 1. Install Dependencies
 
 ```bash
-cd toondb_complete_examples
+cd sochdb_complete_examples
 pip install -r requirements.txt
 ```
 
@@ -222,8 +222,8 @@ AZURE_OPENAI_CHAT_DEPLOYMENT=gpt-4
 
 Then run:
 ```bash
-python3 langgraph_agent_with_toondb.py --demo
-python3 autogen_agent_with_toondb.py --demo
+python3 langgraph_agent_with_sochdb.py --demo
+python3 autogen_agent_with_sochdb.py --demo
 ```
 
 ---
@@ -289,7 +289,7 @@ history = memory.get_conversation_history(session_id, last_n=10)
 
 ## 💡 Production Tips
 
-**When to use ToonDB**:
+**When to use SochDB**:
 - ✅ Local-first applications
 - ✅ Embedded agent memory
 - ✅ Fast key-value lookups needed
@@ -320,17 +320,17 @@ python3 graph_example.py
 python3 advanced_travel.py
 
 # Check databases created
-ls -lh toondb_*_data/
-du -sh toondb_*_data/
+ls -lh sochdb_*_data/
+du -sh sochdb_*_data/
 ```
 
-### Test ToonDB Integration
+### Test SochDB Integration
 
 ```python
-from langgraph_agent_with_toondb import ToonDBMemoryStore
+from langgraph_agent_with_sochdb import SochDBMemoryStore
 from langchain_core.messages import HumanMessage
 
-memory = ToonDBMemoryStore()
+memory = SochDBMemoryStore()
 session_id = memory.start_session()
 
 # Test storage
@@ -356,4 +356,4 @@ memory.close()
 
 **Total code**: ~2,400 lines of production-ready examples
 
-**Key achievement**: ToonDB provides fast, reliable, local memory for AI agents with zero data loss and sub-millisecond performance.
+**Key achievement**: SochDB provides fast, reliable, local memory for AI agents with zero data loss and sub-millisecond performance.

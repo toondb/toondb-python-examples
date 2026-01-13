@@ -1,5 +1,5 @@
 """
-ToonDB Graph Example
+SochDB Graph Example
 Demonstrates storing and querying graph-like data with episodes, nodes, and edges
 
 Equivalent to Zep's graph_example/graph_example.py
@@ -8,12 +8,12 @@ import uuid
 import json
 import time
 from typing import List, Dict, Optional
-from toondb import Database
+from sochdb import Database
 
 
-class ToonDBGraph:
+class SochDBGraph:
     """
-    Graph storage and retrieval using ToonDB hierarchical paths
+    Graph storage and retrieval using SochDB hierarchical paths
     
     Simulates knowledge graph with:
     - Episodes (data points like messages or facts)
@@ -21,7 +21,7 @@ class ToonDBGraph:
     - Edges (relationships between nodes)
     """
     
-    def __init__(self, db_path="./toondb_graph_data"):
+    def __init__(self, db_path="./sochdb_graph_data"):
         self.db = Database.open(db_path)
     
     def create_graph(self, graph_id, name=None, description=None):
@@ -225,10 +225,10 @@ class ToonDBGraph:
 
 def main():
     print("="*70)
-    print("  ToonDB Graph Example")
+    print("  SochDB Graph Example")
     print("="*70 + "\n")
     
-    graph = ToonDBGraph()
+    graph = SochDBGraph()
     
     # Create graph
     graph_id = f"slack:{uuid.uuid4().hex[:8]}"

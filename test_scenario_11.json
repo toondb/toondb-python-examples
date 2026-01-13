@@ -1,0 +1,27 @@
+{
+  "run_meta": {
+    "seed": 1337,
+    "scale": "small",
+    "mode": "embedded",
+    "llm_mode": "real",
+    "sdk_version": "0.3.3",
+    "started_at": "2026-01-09T20:06:37.431990",
+    "duration_s": 0.4678330421447754
+  },
+  "scenario_scores": {},
+  "global_metrics": {
+    "p95_latency_ms": {},
+    "error_rate": 0.0,
+    "llm_usage": {
+      "total_calls": 0,
+      "total_tokens": 0
+    }
+  },
+  "overall": {
+    "pass": true,
+    "score_0_100": 0.0,
+    "passed_scenarios": 0,
+    "total_scenarios": 0,
+    "failed_checks": []
+  }
+}
